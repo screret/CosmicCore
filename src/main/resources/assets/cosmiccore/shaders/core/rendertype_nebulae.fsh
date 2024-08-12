@@ -1,13 +1,13 @@
 #version 150
 
-#moj_import <matrix.glsl>
-
 //CBS
 //Parallax scrolling fractal galaxy.
 //Inspired by JoshP's Simplicity shader: https://www.shadertoy.com/view/lslGWr
 
 // Source: https://www.shadertoy.com/view/MslGWN
-// Modified by Screret to work within Minecraft
+// Modified by screret to work within Minecraft
+
+uniform sampler2D Sampler0;
 
 // GameTime is how many days have passed in fractional days. mutliply by 1200 to get seconds, or 24000 to get ticks.
 uniform float GameTime;
@@ -43,16 +43,30 @@ vec3 nrand3(vec2 co) {
     vec3 c = mix(a, b, 0.5);
     return c;
 }
-out vec4 fragColor;
 
+// Inverse projection matrix
+in mat4 invProjMat;
+in vec2 texCoord0;
+in vec4 normal;
+
+out vec4 fragColor;
 
 void main() {
     // multiplied by ScrollSpeed to get a reasonable speed
     float GameTime = GameTime * ScrollSpeed;
+    vec4 ndc = vec4(
+        (gl_FragCoord.x / ScreenSize.x - 0.5) * 2.0,
+        (gl_FragCoord.y / ScreenSize.y - 0.5) * 2.0,
+        (gl_FragCoord.z - 0.5) * 2.0,
+        1.0);
 
-    vec2 uv = gl_FragCoord.xy / ScreenSize - 1.0;
-    vec2 uvs = uv * ScreenSize / max(ScreenSize.x, ScreenSize.y);
-    vec3 p = vec3(uvs / 4.0, 0.0) + vec3(1.0, -1.3, 0.0);
+    // Convert NDC throuch inverse clip coordinates to view coordinates
+    vec4 clip = invProjMat * ndc;
+    vec3 vertex = (clip / clip.w).xyz;
+
+    vec2 uv = vertex.xy - 1.0;
+    vec2 uvs = uv / 16.0;
+    vec3 p = (vec3(uvs / 4.0, 0.0) + vec3(1.0, -1.3, 0.0));
     p += 0.2 * vec3(sin(GameTime / 16.0), sin(GameTime / 12.0),  sin(GameTime / 128.0));
 
     float t = field(p, Frequencies[2], Layer0Iterations);
