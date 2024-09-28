@@ -76,6 +76,6 @@ public class GenericLootModifier extends LootModifier {
 
     @Override
     public Codec<? extends IGlobalLootModifier> codec() {
-        return null;
+        return CODEC;
     }
 }

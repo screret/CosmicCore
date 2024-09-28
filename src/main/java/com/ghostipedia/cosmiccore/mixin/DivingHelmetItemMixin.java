@@ -7,9 +7,10 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import com.simibubi.create.content.equipment.armor.DivingHelmetItem;
-@Mixin(value = DivingHelmetItem.class, remap = false)
 
+@Mixin(value = DivingHelmetItem.class, remap = false)
 public class DivingHelmetItemMixin {
+
     /**
      * Activate helmet "if in water or lava" -> "if in water or bad air or lava"
      */

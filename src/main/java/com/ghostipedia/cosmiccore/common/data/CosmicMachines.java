@@ -76,6 +76,7 @@ import static com.gregtechceu.gtceu.common.data.GTBlocks.*;
 import static com.gregtechceu.gtceu.common.data.GTMachines.*;
 
 public class CosmicMachines {
+
     static {
         CosmicRegistration.REGISTRATE.creativeModeTab(() -> CosmicCreativeModeTabs.COSMIC_CORE);
     }
@@ -134,7 +135,6 @@ public class CosmicMachines {
                     .register());
 
 
-
     public static final MachineDefinition[] COSMIC_PARALLEL_HATCH = registerTieredMachines("cosmic_parallel_hatch",
             CosmicParallelHatchPartMachine::new,
             (tier, builder) -> builder
@@ -151,10 +151,10 @@ public class CosmicMachines {
                     .workableTieredHullRenderer(GTCEu.id("block/machines/parallel_hatch_mk" + (tier - 4)))
                     .tooltips(Component.translatable("gtceu.machine.parallel_hatch_mk" + tier + ".tooltip"))
                     .register(),
-            ZPM, UV, UHV, UEV,UIV);
+            ZPM, UV, UHV, UEV, UIV);
 
 
-//Enable If needed Inside of Dev
+    //Enable If needed Inside of Dev
 //    public static final MultiblockMachineDefinition SOUL_TESTER = REGISTRATE.multiblock("soul_tester", PrimitiveWorkableMachine::new)
 //            .rotationState(RotationState.NON_Y_AXIS)
 //            .recipeType(CosmicCoreRecipeTypes.SOUL_TESTER_RECIPES)
@@ -167,58 +167,58 @@ public class CosmicMachines {
 //                    .build())
 //            .workableCasingRenderer(GTCEu.id("block/casings/solid/machine_casing_inert_ptfe"), GTCEu.id("block/multiblock/coke_oven"))
 //            .register();
-public static final MultiblockMachineDefinition STEAM_CASTER = GTRegistration.REGISTRATE
-        .multiblock("steam_caster", WeakSteamParallelMultiBlockMachine::new)
-        .rotationState(RotationState.ALL)
-        .appearanceBlock(BRONZE_HULL)
-        .recipeType(GTRecipeTypes.FLUID_SOLIDFICATION_RECIPES)
-        .recipeModifier(WeakSteamParallelMultiBlockMachine::recipeModifier, true)
-        .addOutputLimit(ItemRecipeCapability.CAP, 1)
-        .pattern(definition -> FactoryBlockPattern.start()
-                .aisle("AAAA", "ABBA", "AAAA")
-                .aisle("AAAA", "BCCB", "AAAA")
-                .aisle("AAAA", "ADBA", "AAAA")
-                .where('D', Predicates.controller(blocks(definition.getBlock())))
-                .where('#', Predicates.air())
-                .where(' ', Predicates.any())
-                .where('A', blocks(CASING_BRONZE_BRICKS.get()))
-                .where('B', blocks(CASING_COKE_BRICKS.get())
-                        .or(Predicates.abilities(PartAbility.STEAM_IMPORT_ITEMS).setPreviewCount(1))
-                        .or(Predicates.abilities(PartAbility.STEAM_EXPORT_ITEMS).setPreviewCount(1))
-                        .or(Predicates.abilities(PartAbility.IMPORT_FLUIDS).setPreviewCount(1))
-                        .or(Predicates.abilities(PartAbility.STEAM).setExactLimit(1)))
-                .where('C', blocks(CASING_BRONZE_PIPE.get()))
-                .build())
-        .workableCasingRenderer(GTCEu.id("block/casings/solid/machine_coke_bricks"), CosmicCore.id("block/multiblock/solidifier"))
-        .register();
-public static final MultiblockMachineDefinition STEAM_MIXER = GTRegistration.REGISTRATE
-        .multiblock("steam_mixing_vessel", WeakSteamParallelMultiBlockMachine::new)
-        .rotationState(RotationState.ALL)
-        .appearanceBlock(BRONZE_BRICKS_HULL)
-        .recipeType(GTRecipeTypes.MIXER_RECIPES)
-        .recipeModifier(WeakSteamParallelMultiBlockMachine::recipeModifier, true)
-        .addOutputLimit(ItemRecipeCapability.CAP, 1)
-        .pattern(definition -> FactoryBlockPattern.start()
-                .aisle("AAA", "BCB", "BCB", " B ")
-                .aisle("AAA", "CEC", "CEC", "BBB")
-                .aisle("ADA", "BCB", "BCB", " B ")
-                .where('D', Predicates.controller(blocks(definition.getBlock())))
-                .where('#', Predicates.air())
-                .where(' ', Predicates.any())
-                .where('A', blocks(BRONZE_BRICKS_HULL.get())
-                        .or(Predicates.abilities(PartAbility.STEAM_IMPORT_ITEMS).setPreviewCount(1))
-                        .or(Predicates.abilities(PartAbility.STEAM_EXPORT_ITEMS).setPreviewCount(1))
-                        .or(Predicates.abilities(PartAbility.IMPORT_FLUIDS).setPreviewCount(1))
-                        .or(Predicates.abilities(PartAbility.EXPORT_FLUIDS).setPreviewCount(1))
-                        .or(Predicates.abilities(PartAbility.STEAM).setExactLimit(1)))
-                .where('B', blocks(CASING_BRONZE_BRICKS.get()))
-                .where('C', blocks(BRONZE_HULL.get()))
-                .where('E', blocks(CASING_BRONZE_GEARBOX.get()))
-                .build())
-        .renderer(() -> new SidedWorkableHullRenderer(GTCEu.id("block/casings/solid/machine_casing_bronze_plated_bricks"),
-                WorkableSteamHullType.BRONZE_BRICK_HULL,
-                CosmicCore.id("block/multiblock/mixing_vessel")))
-        .register();
+    public static final MultiblockMachineDefinition STEAM_CASTER = GTRegistration.REGISTRATE
+            .multiblock("steam_caster", WeakSteamParallelMultiBlockMachine::new)
+            .rotationState(RotationState.ALL)
+            .appearanceBlock(BRONZE_HULL)
+            .recipeType(GTRecipeTypes.FLUID_SOLIDFICATION_RECIPES)
+            .recipeModifier(WeakSteamParallelMultiBlockMachine::recipeModifier, true)
+            .addOutputLimit(ItemRecipeCapability.CAP, 1)
+            .pattern(definition -> FactoryBlockPattern.start()
+                    .aisle("AAAA", "ABBA", "AAAA")
+                    .aisle("AAAA", "BCCB", "AAAA")
+                    .aisle("AAAA", "ADBA", "AAAA")
+                    .where('D', Predicates.controller(blocks(definition.getBlock())))
+                    .where('#', Predicates.air())
+                    .where(' ', Predicates.any())
+                    .where('A', blocks(CASING_BRONZE_BRICKS.get()))
+                    .where('B', blocks(CASING_COKE_BRICKS.get())
+                            .or(Predicates.abilities(PartAbility.STEAM_IMPORT_ITEMS).setPreviewCount(1))
+                            .or(Predicates.abilities(PartAbility.STEAM_EXPORT_ITEMS).setPreviewCount(1))
+                            .or(Predicates.abilities(PartAbility.IMPORT_FLUIDS).setPreviewCount(1))
+                            .or(Predicates.abilities(PartAbility.STEAM).setExactLimit(1)))
+                    .where('C', blocks(CASING_BRONZE_PIPE.get()))
+                    .build())
+            .workableCasingRenderer(GTCEu.id("block/casings/solid/machine_coke_bricks"), CosmicCore.id("block/multiblock/solidifier"))
+            .register();
+    public static final MultiblockMachineDefinition STEAM_MIXER = GTRegistration.REGISTRATE
+            .multiblock("steam_mixing_vessel", WeakSteamParallelMultiBlockMachine::new)
+            .rotationState(RotationState.ALL)
+            .appearanceBlock(BRONZE_BRICKS_HULL)
+            .recipeType(GTRecipeTypes.MIXER_RECIPES)
+            .recipeModifier(WeakSteamParallelMultiBlockMachine::recipeModifier, true)
+            .addOutputLimit(ItemRecipeCapability.CAP, 1)
+            .pattern(definition -> FactoryBlockPattern.start()
+                    .aisle("AAA", "BCB", "BCB", " B ")
+                    .aisle("AAA", "CEC", "CEC", "BBB")
+                    .aisle("ADA", "BCB", "BCB", " B ")
+                    .where('D', Predicates.controller(blocks(definition.getBlock())))
+                    .where('#', Predicates.air())
+                    .where(' ', Predicates.any())
+                    .where('A', blocks(BRONZE_BRICKS_HULL.get())
+                            .or(Predicates.abilities(PartAbility.STEAM_IMPORT_ITEMS).setPreviewCount(1))
+                            .or(Predicates.abilities(PartAbility.STEAM_EXPORT_ITEMS).setPreviewCount(1))
+                            .or(Predicates.abilities(PartAbility.IMPORT_FLUIDS).setPreviewCount(1))
+                            .or(Predicates.abilities(PartAbility.EXPORT_FLUIDS).setPreviewCount(1))
+                            .or(Predicates.abilities(PartAbility.STEAM).setExactLimit(1)))
+                    .where('B', blocks(CASING_BRONZE_BRICKS.get()))
+                    .where('C', blocks(BRONZE_HULL.get()))
+                    .where('E', blocks(CASING_BRONZE_GEARBOX.get()))
+                    .build())
+            .renderer(() -> new SidedWorkableHullRenderer(GTCEu.id("block/casings/solid/machine_casing_bronze_plated_bricks"),
+                    WorkableSteamHullType.BRONZE_BRICK_HULL,
+                    CosmicCore.id("block/multiblock/mixing_vessel")))
+            .register();
     public static final MultiblockMachineDefinition INDUSTRIAL_PRIMITIVE_BLAST_FURNACE = GTRegistration.REGISTRATE
             .multiblock("industrial_primitive_blast_furnace", IPBFMachine::new)
             .rotationState(RotationState.ALL)
@@ -246,7 +246,7 @@ public static final MultiblockMachineDefinition STEAM_MIXER = GTRegistration.REG
                     Component.translatable("cosmiccore.multiblock.ipbf.tooltip.3")
             )
             .register();
-    //Terrifying Recipe Modifiers half of this is moonruns to me :lets:
+    //Terrifying Recipe Modifiers half of this is moonrunes to me :lets:
     public final static MultiblockMachineDefinition DRYGMY_GROVE = REGISTRATE.multiblock("drygmy_grove", WorkableElectricMultiblockMachine::new)
             .rotationState(RotationState.NON_Y_AXIS)
             .recipeType(CosmicRecipeTypes.GROVE_RECIPES)
@@ -306,13 +306,13 @@ public static final MultiblockMachineDefinition STEAM_MIXER = GTRegistration.REG
             .appearanceBlock(CosmicBlocks.NAQUADAH_PRESSURE_RESISTANT_CASING)
             .generator(true)
             .pattern(definition -> FactoryBlockPattern.start()
-                    .aisle("##QQQ##", "##QQQ##", "###Q###", "#######", "#######","#######","#######","#######","#######","#######","###Q###","##QQQ##","##QQQ##")
-                    .aisle("#QQQQQ#", "#QQSQQ#", "#FQQQF#", "#FQFQF#", "#F###F#","#F###F#","#F###F#","#F###F#","#F###F#","#FQFQF#","#FQQQF#","#QQSQQ#","#QQQQQ#")
-                    .aisle("QQQQQQQ", "QQSSSQQ", "#QSSSQ#", "#QHGHQ#", "##HGH##","##HGH##","##HGH##","##HGH##","##HGH##","#QHGHQ#","#QSSSQ#","QQSSSQQ","QQQQQQQ")
-                    .aisle("QQQQQQQ", "QSSSSSQ", "QQSSSQQ", "#FGSGF#", "##GSG##","##GSG##","##GSG##","##GSG##","##GSG##","#FGSGF#","QQSSSQQ","QSSSSSQ","QQQQQQQ")
-                    .aisle("QQQQQQQ", "QQSSSQQ", "#QSSSQ#", "#QHGHQ#", "##HGH##","##HGH##","##HGH##","##HGH##","##HGH##","#QHGHQ#","#QSSSQ#","QQSSSQQ","QQQQQQQ")
-                    .aisle("#QQQQQ#", "#QQSQQ#", "#FQQQF#", "#FQFQF#", "#F###F#","#F###F#","#F###F#","#F###F#","#F###F#","#FQFQF#","#FQQQF#","#QQSQQ#","#QQQQQ#")
-                    .aisle("##QQQ##", "##QCQ##", "###Q###", "#######", "#######","#######","#######","#######","#######","#######","###Q###","##QQQ##","##QQQ##")
+                    .aisle("##QQQ##", "##QQQ##", "###Q###", "#######", "#######", "#######", "#######", "#######", "#######", "#######", "###Q###", "##QQQ##", "##QQQ##")
+                    .aisle("#QQQQQ#", "#QQSQQ#", "#FQQQF#", "#FQFQF#", "#F###F#", "#F###F#", "#F###F#", "#F###F#", "#F###F#", "#FQFQF#", "#FQQQF#", "#QQSQQ#", "#QQQQQ#")
+                    .aisle("QQQQQQQ", "QQSSSQQ", "#QSSSQ#", "#QHGHQ#", "##HGH##", "##HGH##", "##HGH##", "##HGH##", "##HGH##", "#QHGHQ#", "#QSSSQ#", "QQSSSQQ", "QQQQQQQ")
+                    .aisle("QQQQQQQ", "QSSSSSQ", "QQSSSQQ", "#FGSGF#", "##GSG##", "##GSG##", "##GSG##", "##GSG##", "##GSG##", "#FGSGF#", "QQSSSQQ", "QSSSSSQ", "QQQQQQQ")
+                    .aisle("QQQQQQQ", "QQSSSQQ", "#QSSSQ#", "#QHGHQ#", "##HGH##", "##HGH##", "##HGH##", "##HGH##", "##HGH##", "#QHGHQ#", "#QSSSQ#", "QQSSSQQ", "QQQQQQQ")
+                    .aisle("#QQQQQ#", "#QQSQQ#", "#FQQQF#", "#FQFQF#", "#F###F#", "#F###F#", "#F###F#", "#F###F#", "#F###F#", "#FQFQF#", "#FQQQF#", "#QQSQQ#", "#QQQQQ#")
+                    .aisle("##QQQ##", "##QCQ##", "###Q###", "#######", "#######", "#######", "#######", "#######", "#######", "#######", "###Q###", "##QQQ##", "##QQQ##")
                     .where('#', any())
                     .where("C", controller(blocks(definition.getBlock())))
                     .where('F', blocks(ChemicalHelper.getBlock(TagPrefix.frameGt, GTMaterials.NaquadahAlloy)))
@@ -341,7 +341,7 @@ public static final MultiblockMachineDefinition STEAM_MIXER = GTRegistration.REG
             .appearanceBlock(GTBlocks.CASING_STAINLESS_CLEAN)
             .pattern(definition -> FactoryBlockPattern.start(RIGHT, BACK, UP)
                     .aisle(" BCB ", "BBBBB", "BBBBB", "BBBBB", " BBB ")
-                    .aisle(" A A ", "AGPGA", "APGPA", "AGPGA", " A A ").setRepeatable(1,15)
+                    .aisle(" A A ", "AGPGA", "APGPA", "AGPGA", " A A ").setRepeatable(1, 15)
                     .aisle(" AAA ", "AAAAA", "AAAAA", "AAAAA", " AAA ")
                     .where(' ', any())
                     .where("C", controller(blocks(definition.getBlock())))
@@ -450,16 +450,16 @@ public static final MultiblockMachineDefinition STEAM_MIXER = GTRegistration.REG
     public final static MultiblockMachineDefinition VOMAHINE_INDUSTRIAL_CHEMPLANT = REGISTRATE.multiblock("vomahine_industrial_chemical_plant", WorkableElectricMultiblockMachine::new)
             .rotationState(RotationState.ALL)
             .recipeTypes(CosmicRecipeTypes.VOMAHINE_INDUSTRIAL_CHEMVAT, GTRecipeTypes.CRACKING_RECIPES)
-            .recipeModifiers(CosmicRecipeModifiers::vomahineChemicalPlantParallel,GTRecipeModifiers.ELECTRIC_OVERCLOCK.apply(OverclockingLogic.NON_PERFECT_OVERCLOCK))
+            .recipeModifiers(CosmicRecipeModifiers::vomahineChemicalPlantParallel, GTRecipeModifiers.ELECTRIC_OVERCLOCK.apply(OverclockingLogic.NON_PERFECT_OVERCLOCK))
             .appearanceBlock(VOMAHINE_CERTIFIED_CHEMICALLY_RESISTANT_CASING)
             .pattern(definition -> FactoryBlockPattern.start()
-                    .aisle("##QQQ##", "##QQQ##", "###Q###", "#######", "#######","#######","#######","#######","###Q###","##QQQ##","##QQQ##")
-                    .aisle("#QQQQQ#", "#QQSQQ#", "#FQQQF#", "#FQ#QF#", "#F###F#","#F###F#","#F###F#","#FQ#QF#","#FQQQF#","#QQSQQ#","#QQQQQ#")
-                    .aisle("QQQQQQQ", "QQSSSQQ", "#QSSSQ#", "##HGH##", "##HGH##","##HGH##","##HGH##","#QHGHQ#","#QSSSQ#","QQSSSQQ","QQQQQQQ")
-                    .aisle("QQQQQQQ", "QSSSSSQ", "QQSSSQQ", "##GSG##", "##GSG##","##GSG##","##GSG##","##GSG##","QQSSSQQ","QSSSSSQ","QQQQQQQ")
-                    .aisle("QQQQQQQ", "QQSSSQQ", "#QSSSQ#", "##HGH##", "##HGH##","##HGH##","##HGH##","#QHGHQ#","#QSSSQ#","QQSSSQQ","QQQQQQQ")
-                    .aisle("#QQQQQ#", "#QQSQQ#", "#FQQQF#", "#FQ#QF#", "#F###F#","#F###F#","#F###F#","#FQ#QF#","#FQQQF#","#QQSQQ#","#QQQQQ#")
-                    .aisle("##QQQ##", "##QCQ##", "###Q###", "#######", "#######","#######","#######","#######","###Q###","##QQQ##","##QQQ##")
+                    .aisle("##QQQ##", "##QQQ##", "###Q###", "#######", "#######", "#######", "#######", "#######", "###Q###", "##QQQ##", "##QQQ##")
+                    .aisle("#QQQQQ#", "#QQSQQ#", "#FQQQF#", "#FQ#QF#", "#F###F#", "#F###F#", "#F###F#", "#FQ#QF#", "#FQQQF#", "#QQSQQ#", "#QQQQQ#")
+                    .aisle("QQQQQQQ", "QQSSSQQ", "#QSSSQ#", "##HGH##", "##HGH##", "##HGH##", "##HGH##", "#QHGHQ#", "#QSSSQ#", "QQSSSQQ", "QQQQQQQ")
+                    .aisle("QQQQQQQ", "QSSSSSQ", "QQSSSQQ", "##GSG##", "##GSG##", "##GSG##", "##GSG##", "##GSG##", "QQSSSQQ", "QSSSSSQ", "QQQQQQQ")
+                    .aisle("QQQQQQQ", "QQSSSQQ", "#QSSSQ#", "##HGH##", "##HGH##", "##HGH##", "##HGH##", "#QHGHQ#", "#QSSSQ#", "QQSSSQQ", "QQQQQQQ")
+                    .aisle("#QQQQQ#", "#QQSQQ#", "#FQQQF#", "#FQ#QF#", "#F###F#", "#F###F#", "#F###F#", "#FQ#QF#", "#FQQQF#", "#QQSQQ#", "#QQQQQ#")
+                    .aisle("##QQQ##", "##QCQ##", "###Q###", "#######", "#######", "#######", "#######", "#######", "###Q###", "##QQQ##", "##QQQ##")
                     .where('#', any())
                     .where("C", controller(blocks(definition.getBlock())))
                     .where('F', blocks(ChemicalHelper.getBlock(TagPrefix.frameGt, GTMaterials.NaquadahAlloy)))
@@ -486,7 +486,7 @@ public static final MultiblockMachineDefinition STEAM_MIXER = GTRegistration.REG
     public final static MultiblockMachineDefinition CELESTIAL_BORE = REGISTRATE.multiblock("vomahine_celestial_laser_bore", WorkableElectricMultiblockMachine::new)
             .rotationState(RotationState.ALL)
             .recipeType(CosmicRecipeTypes.CELESTIAL_BORE)
-            .recipeModifiers(GTRecipeModifiers.ELECTRIC_OVERCLOCK.apply(OverclockingLogic.NON_PERFECT_OVERCLOCK),CosmicRecipeModifiers::vomahineChemicalPlantParallel)
+            .recipeModifiers(GTRecipeModifiers.ELECTRIC_OVERCLOCK.apply(OverclockingLogic.NON_PERFECT_OVERCLOCK), CosmicRecipeModifiers::vomahineChemicalPlantParallel)
             .appearanceBlock(VOMAHINE_CERTIFIED_CHEMICALLY_RESISTANT_CASING)
             .pattern(definition -> FactoryBlockPattern.start()
                     .aisle("                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                               A                               ", "                               A                               ", "                               A                               ", "                            AAAAAAA                            ", "                               A                               ", "                               A                               ", "                               A                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ")
@@ -553,11 +553,11 @@ public static final MultiblockMachineDefinition STEAM_MIXER = GTRegistration.REG
                     .aisle("                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                               A                               ", "                              BBB                              ", "                             BBBBB                             ", "                            BBBBBBB                            ", "                           ABBBBBBBA                           ", "                            BBBBBBB                            ", "                             BBBBB                             ", "                              BBB                              ", "                               A                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ")
                     .aisle("                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                               A                               ", "                               A                               ", "                               A                               ", "                            AAAAAAA                            ", "                               A                               ", "                               A                               ", "                               A                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ", "                                                               ")
                     .where(' ', any())
-                    .where("A",  blocks(ChemicalHelper.getBlock(TagPrefix.frameGt, CosmicMaterials.PsionicGalvorn)))
-                    .where("B",  blocks(CosmicBlocks.NAQUADAH_PRESSURE_RESISTANT_CASING.get()))
-                    .where("C",  blocks(CosmicBlocks.VOMAHINE_ULTRA_POWERED_CASING.get()))
-                    .where("D",  blocks(CosmicBlocks.VOMAHINE_CERTIFIED_INTERSTELLAR_GRADE_CASING.get()))
-                    .where("E",  blocks(VOMAHINE_CERTIFIED_CHEMICALLY_RESISTANT_CASING.get())
+                    .where("A", blocks(ChemicalHelper.getBlock(TagPrefix.frameGt, CosmicMaterials.PsionicGalvorn)))
+                    .where("B", blocks(CosmicBlocks.NAQUADAH_PRESSURE_RESISTANT_CASING.get()))
+                    .where("C", blocks(CosmicBlocks.VOMAHINE_ULTRA_POWERED_CASING.get()))
+                    .where("D", blocks(CosmicBlocks.VOMAHINE_CERTIFIED_INTERSTELLAR_GRADE_CASING.get()))
+                    .where("E", blocks(VOMAHINE_CERTIFIED_CHEMICALLY_RESISTANT_CASING.get())
                             .or(abilities(PartAbility.IMPORT_FLUIDS))
                             .or(abilities(PartAbility.EXPORT_FLUIDS))
                             .or(abilities(PartAbility.IMPORT_ITEMS))
@@ -571,21 +571,22 @@ public static final MultiblockMachineDefinition STEAM_MIXER = GTRegistration.REG
                             .or(abilities(CosmicPartAbility.COSMIC_PARALLEL_HATCH))
                             .or(abilities(PartAbility.INPUT_LASER))
                             .or(abilities(PartAbility.INPUT_ENERGY)))
-                    .where("F",  blocks(ChemicalHelper.getBlock(TagPrefix.frameGt, CosmicMaterials.Trinavine)))
-                    .where("G",  blocks(CosmicBlocks.VOMAHINE_CERTIFIED_INTERSTELLAR_GRADE_CASING.get()))
-                    .where("H",  blocks(GTBlocks.CASING_LAMINATED_GLASS.get()))
-                    .where("I",  blocks(CosmicBlocks.CASING_DYSON_CELL.get()))
-                    .where("J",  blocks(CosmicBlocks.VOMAHINE_ULTRA_POWERED_CASING.get()))
-                    .where("K",  any())
-                    .where("L",  magnetCoils())
-                    .where("M",  blocks(GTBlocks.CASING_LAMINATED_GLASS.get()))
-                    .where("N",  blocks(GTBlocks.CASING_LAMINATED_GLASS.get()))
-                    .where("O",  blocks(CosmicBlocks.VOMAHINE_ULTRA_POWERED_CASING.get()))
-                    .where("P",  controller(blocks(definition.getBlock())))
+                    .where("F", blocks(ChemicalHelper.getBlock(TagPrefix.frameGt, CosmicMaterials.Trinavine)))
+                    .where("G", blocks(CosmicBlocks.VOMAHINE_CERTIFIED_INTERSTELLAR_GRADE_CASING.get()))
+                    .where("H", blocks(GTBlocks.CASING_LAMINATED_GLASS.get()))
+                    .where("I", blocks(CosmicBlocks.CASING_DYSON_CELL.get()))
+                    .where("J", blocks(CosmicBlocks.VOMAHINE_ULTRA_POWERED_CASING.get()))
+                    .where("K", any())
+                    .where("L", magnetCoils())
+                    .where("M", blocks(GTBlocks.CASING_LAMINATED_GLASS.get()))
+                    .where("N", blocks(GTBlocks.CASING_LAMINATED_GLASS.get()))
+                    .where("O", blocks(CosmicBlocks.VOMAHINE_ULTRA_POWERED_CASING.get()))
+                    .where("P", controller(blocks(definition.getBlock())))
                     .build())
             .workableCasingRenderer(CosmicCore.id("block/casings/solid/vomahine_certified_chemically_resistant_casing"), CosmicCore.id("block/multiblock/vomahine_chemplant"))
 
             .register();
+
     private static MachineDefinition[] registerSoulTieredHatch(String name, String displayName, String model, IO io, int[] tiers, PartAbility... abilities) {
         return registerTieredMachines(name,
                 (holder, tier) -> new SoulHatchPartMachine(holder, tier, io),
@@ -602,6 +603,7 @@ public static final MultiblockMachineDefinition STEAM_MIXER = GTRegistration.REG
                                 tooltip.add(Component.translatable("tooltip.cosmiccore.soul_hatch.output", SoulHatchPartMachine.getMaxCapacity(tier)));
                         }).register(), tiers);
     }
+
     private static MachineDefinition[] registerThermiaTieredHatch(String name, String displayName, String model, IO io, int[] tiers, PartAbility... abilities) {
         return registerTieredMachines(name,
                 (holder, tier) -> new ThermiaHatchPartMachine(holder, tier, io),
@@ -626,6 +628,7 @@ public static final MultiblockMachineDefinition STEAM_MIXER = GTRegistration.REG
         }
         return definitions;
     }
+
     public static final MachineDefinition STEAM_IMPORT_HATCH = GTRegistration.REGISTRATE
             .machine("steam_fluid_input_hatch", holder -> new SteamFluidHatchPartMachine(holder, IO.IN, 4000, 1))
             .rotationState(RotationState.ALL)
@@ -640,6 +643,7 @@ public static final MultiblockMachineDefinition STEAM_MIXER = GTRegistration.REG
             .overlaySteamHullRenderer("fluid_hatch.export")
             .langValue("Fluid Output Hatch (Steam)")
             .register();
+
     public static void init() {
         for (MultiblockMachineDefinition definition : GTMachines.FUSION_REACTOR) {
             if (definition == null) continue;

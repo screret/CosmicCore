@@ -6,12 +6,10 @@ import net.minecraft.world.entity.LivingEntity;
 
 public class OxygenHelper {
 
-
     public static boolean airQualityActivatesHelmet(LivingEntity entity) {
-        final var air = AirQualityHelperImpl.INSTANCE.getAirQualityAtLocation(entity.level(),entity.getEyePosition());
+        final var air = AirQualityHelperImpl.INSTANCE.getAirQualityAtLocation(entity.level(), entity.getEyePosition());
         return air == AirQualityLevel.RED || air == AirQualityLevel.YELLOW;
     }
-
 
 //
 //    @SubscribeEvent
@@ -21,7 +19,4 @@ public class OxygenHelper {
 //        }
 //
 //    }
-
-
-
 }

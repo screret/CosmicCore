@@ -192,10 +192,10 @@ public class CosmicItems {
                     return Short.MIN_VALUE;
                 }
 
-                @Override
-                public boolean onDroppedByPlayer(ItemStack item, Player player) {
-                    return false;
-                }
+                //@Override
+                //public boolean onDroppedByPlayer(ItemStack item, Player player) {
+                //    return false;
+                //}
 
                 @Override
                 public boolean isFoil(ItemStack stack) {
@@ -205,12 +205,13 @@ public class CosmicItems {
             .lang("The One Ring")
             .properties(p -> p.stacksTo(1).fireResistant())
             .onRegister(attach(new EffectApplicationBehavior()
-                    .addEffect(() -> new MobEffectInstance(MobEffects.INVISIBILITY, 10), 1.0F)
-                    .addEffect(() -> new MobEffectInstance(MobEffects.UNLUCK, 10, 5), 1.0F)
-                    .addEffect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 10, 1), 1.0F),
+                            .addEffect(() -> new MobEffectInstance(MobEffects.INVISIBILITY, 10), 1.0F)
+                            .addEffect(() -> new MobEffectInstance(MobEffects.UNLUCK, 10, 4), 1.0F)
+                            .addEffect(() -> new MobEffectInstance(MobEffects.DAMAGE_BOOST, 10, 2), 1.0F)
+                            .addEffect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 10, 1), 1.0F),
                     new TooltipBehavior(list -> {
                         list.add(Component.translatable("item.cosmiccore.the_one_ring.tooltip.0"));
-                        list.add(Component.translatable("item.cosmiccore.the_one_ring.tooltip.1"));
+                        //list.add(Component.translatable("item.cosmiccore.the_one_ring.tooltip.1"));
                     })))
             .register();
 //    public static final ItemEntry<ComponentItem> PARADOX_ECHOS = REGISTRATE.item("paradox_echos", ComponentItem::create)

@@ -9,6 +9,7 @@ import wayoftime.bloodmagic.impl.BloodMagicAPI;
 import java.util.function.Supplier;
 
 public class CosmicBloodOrbDeferredRegister extends WrappedForgeDeferredRegister<BloodOrb> {
+
     public CosmicBloodOrbDeferredRegister(String modid) {
         super(modid, BloodMagicAPI.bloodOrbRegistryName());
     }
@@ -20,6 +21,6 @@ public class CosmicBloodOrbDeferredRegister extends WrappedForgeDeferredRegister
     }
 
     public <ORB extends BloodOrb> BloodOrbRegistryObject<ORB> register(String name, Supplier<? extends ORB> sup) {
-        return (BloodOrbRegistryObject)this.register(name, sup, BloodOrbRegistryObject::new);
+        return this.register(name, sup, BloodOrbRegistryObject::new);
     }
 }
