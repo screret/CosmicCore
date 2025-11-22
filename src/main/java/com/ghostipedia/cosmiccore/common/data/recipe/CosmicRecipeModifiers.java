@@ -25,11 +25,11 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
-import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
+import it.unimi.dsi.fastutil.objects.Reference2IntMap;
+import it.unimi.dsi.fastutil.objects.Reference2IntOpenHashMap;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Collections;
-import java.util.Map;
 
 public class CosmicRecipeModifiers {
 
@@ -157,15 +157,15 @@ public class CosmicRecipeModifiers {
         return ModifierFunction.IDENTITY;
     }
 
-    private static Map<String, Integer> moduleParallels = null;
+    private static Reference2IntMap<Item> moduleParallels = null;
 
-    public static Map<String, Integer> getModuleParallels() {
+    public static Reference2IntMap<Item> getModuleParallels() {
         if (moduleParallels == null) {
-            moduleParallels = new Object2IntOpenHashMap<>();
-            moduleParallels.put(CosmicItems.PARA_MOD_1.asItem().getDescriptionId(), 16);
-            moduleParallels.put(CosmicItems.PARA_MOD_2.asItem().getDescriptionId(), 32);
-            moduleParallels.put(CosmicItems.PARA_MOD_3.asItem().getDescriptionId(), 64);
-            moduleParallels.put(CosmicItems.PARA_MOD_4.asItem().getDescriptionId(), 256);
+            moduleParallels = new Reference2IntOpenHashMap<>();
+            moduleParallels.put(CosmicItems.PARA_MOD_1.get(), 16);
+            moduleParallels.put(CosmicItems.PARA_MOD_2.get(), 32);
+            moduleParallels.put(CosmicItems.PARA_MOD_3.get(), 64);
+            moduleParallels.put(CosmicItems.PARA_MOD_4.get(), 256);
         }
         return moduleParallels;
     }
@@ -177,7 +177,7 @@ public class CosmicRecipeModifiers {
             if (part instanceof ModuleHatchPartMachine modulePart) {
                 for (int i = 0; i < modulePart.getInventory().getSlots(); i++) {
                     ItemStack stack = modulePart.getInventory().getStackInSlot(i);
-                    extraParallels += getModuleParallels().getOrDefault(stack.getDescriptionId(), 0);
+                    extraParallels += getModuleParallels().getOrDefault(stack.getItem(), 0);
                 }
             }
         }
