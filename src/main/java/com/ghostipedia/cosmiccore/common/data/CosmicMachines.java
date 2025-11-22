@@ -67,12 +67,11 @@ import static com.ghostipedia.cosmiccore.api.machine.part.CosmicPartAbility.*;
 import static com.ghostipedia.cosmiccore.api.registries.CosmicRegistration.REGISTRATE;
 import static com.ghostipedia.cosmiccore.common.data.CosmicBlocks.*;
 import static com.ghostipedia.cosmiccore.common.data.CosmicMachinesUtils.*;
-import static com.ghostipedia.cosmiccore.common.data.recipe.CosmicRecipeModifiers.COSMIC_MODULES;
+import static com.ghostipedia.cosmiccore.common.data.recipe.CosmicRecipeModifiers.*;
 import static com.ghostipedia.cosmiccore.common.machine.multiblock.electric.hpca.HPCAMachine.*;
-import static com.ghostipedia.cosmiccore.gtbridge.CosmicRecipeTypes.BIO_LAB;
+import static com.ghostipedia.cosmiccore.gtbridge.CosmicRecipeTypes.*;
 import static com.gregtechceu.gtceu.api.GTValues.*;
-import static com.gregtechceu.gtceu.api.capability.recipe.IO.IN;
-import static com.gregtechceu.gtceu.api.capability.recipe.IO.OUT;
+import static com.gregtechceu.gtceu.api.capability.recipe.IO.*;
 import static com.gregtechceu.gtceu.api.machine.property.GTMachineModelProperties.*;
 import static com.gregtechceu.gtceu.api.pattern.Predicates.*;
 import static com.gregtechceu.gtceu.api.pattern.util.RelativeDirection.*;
@@ -84,7 +83,6 @@ import static com.gregtechceu.gtceu.common.data.GTRecipeModifiers.*;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.CENTRIFUGE_RECIPES;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.DUMMY_RECIPES;
 import static com.gregtechceu.gtceu.common.data.machines.GTMachineUtils.*;
-import static com.gregtechceu.gtceu.common.data.machines.GTMachineUtils.registerTieredMachines;
 import static com.gregtechceu.gtceu.common.data.machines.GTMultiMachines.FUSION_REACTOR;
 import static com.gregtechceu.gtceu.common.data.models.GTMachineModels.*;
 
@@ -556,7 +554,7 @@ public class CosmicMachines {
                 tiers);
     }
 
-    public static final MachineDefinition CROP_HOLDER = REGISTRATE.machine("crop_holder", CropHolderPartMachines::new)
+    public static final MachineDefinition CROP_HOLDER = REGISTRATE.machine("crop_holder", CropHolderPartMachine::new)
             .langValue("Crop Holder")
             .tier(HV)
             .rotationState(RotationState.ALL)

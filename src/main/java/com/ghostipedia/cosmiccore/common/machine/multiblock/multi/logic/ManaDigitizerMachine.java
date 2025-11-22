@@ -1,6 +1,6 @@
 package com.ghostipedia.cosmiccore.common.machine.multiblock.multi.logic;
 
-import com.ghostipedia.cosmiccore.common.machine.multiblock.part.CropHolderPartMachines;
+import com.ghostipedia.cosmiccore.common.machine.multiblock.part.CropHolderPartMachine;
 
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.capability.IEnergyContainer;
@@ -93,9 +93,11 @@ public class ManaDigitizerMachine extends WorkableElectricMultiblockMachine {
         if (!isWorkingEnabled() || inputEnergyContainers == null) {
             return;
         }
+        // this will literally always quit at `filter(CropHolderPartMachine.class::isInstance)`
+        // because multiblock parts aren't themselves recipe handlers
         var cropList = getCapabilitiesFlat(IO.IN, ItemRecipeCapability.CAP)
                 .stream().filter(IRecipeHandler::shouldSearchContent)
-                .filter(CropHolderPartMachines.class::isInstance)
+                .filter(CropHolderPartMachine.class::isInstance)
                 .map(container -> container.getContents()
                         .stream()
                         .filter(ItemStack.class::isInstance)
@@ -110,6 +112,7 @@ public class ManaDigitizerMachine extends WorkableElectricMultiblockMachine {
             }
         }
 
+        // why does this use a raw number instead of the named constant from GTValues
         if (inputEnergyContainers.getEnergyStored() > GTValues.V[6] * flowers) {
             inputEnergyContainers.removeEnergy(GTValues.V[6] * flowers);
         } else {

@@ -1,7 +1,6 @@
 package com.ghostipedia.cosmiccore.common.machine.multiblock.part;
 
 import com.ghostipedia.cosmiccore.api.CosmicGuiTextures;
-import com.ghostipedia.cosmiccore.common.data.CosmicBotanyItemRegistration;
 
 import com.gregtechceu.gtceu.api.capability.recipe.IO;
 import com.gregtechceu.gtceu.api.gui.GuiTextures;
@@ -23,17 +22,15 @@ import com.lowdragmc.lowdraglib.syncdata.field.ManagedFieldHolder;
 import com.lowdragmc.lowdraglib.utils.Position;
 
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.IPlantable;
 
+import com.ghostipedia.cosmiccore.common.data.tag.item.CosmicItemTags;
 import lombok.Getter;
 import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Arrays;
-
-public class CropHolderPartMachines extends MultiblockPartMachine implements IMachineLife, IFancyUIMachine {
+public class CropHolderPartMachine extends MultiblockPartMachine implements IMachineLife, IFancyUIMachine {
 
     @Persisted
     private final CropHolderHandler heldCrops;
@@ -42,10 +39,10 @@ public class CropHolderPartMachines extends MultiblockPartMachine implements IMa
     @Persisted
     @DescSynced
     private boolean isLocked;
-    protected static final ManagedFieldHolder MANAGED_FIELD_HOLDER = new ManagedFieldHolder(
-            CropHolderPartMachines.class, MultiblockPartMachine.MANAGED_FIELD_HOLDER);
+    protected static final ManagedFieldHolder MANAGED_FIELD_HOLDER = new ManagedFieldHolder(CropHolderPartMachine.class,
+            MultiblockPartMachine.MANAGED_FIELD_HOLDER);
 
-    public CropHolderPartMachines(IMachineBlockEntity holder) {
+    public CropHolderPartMachine(IMachineBlockEntity holder) {
         super(holder);
         heldCrops = new CropHolderHandler(this);
     }
@@ -101,7 +98,7 @@ public class CropHolderPartMachines extends MultiblockPartMachine implements IMa
     }
 
     @Override
-    public ManagedFieldHolder getFieldHolder() {
+    public @NotNull ManagedFieldHolder getFieldHolder() {
         return MANAGED_FIELD_HOLDER;
     }
 }
