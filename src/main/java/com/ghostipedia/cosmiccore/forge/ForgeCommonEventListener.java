@@ -134,33 +134,30 @@ public class ForgeCommonEventListener {
         remapBlockWithItem(event, new ResourceLocation(AdAstra.MOD_ID, "sun_globe"), CosmicBlocks.SUN_GLOBE.get());
 
         // beeg machines
-
-        remapMultiMachine(event, "steam_caster", SteamCaster.STEAM_CASTER);
-        remapMultiMachine(event, "steam_mixer", SteamMixer.STEAM_MIXER);
-        remapMultiMachine(event, "industrial_primitive_blast_furnace",
-                IPBF.INDUSTRIAL_PRIMITIVE_BLAST_FURNACE);
-        remapMultiMachine(event, "high_pressure_assembler", SteamAssembler.HIGH_PRESSURE_ASSEMBLER);
-        remapMultiMachine(event, "large_combustion_engine_cc", CosmicMachines.LARGE_COMBUSTION_ENGINE);
-        remapMultiMachine(event, "extreme_combustion_engine_cc", CosmicMachines.EXTREME_COMBUSTION_ENGINE);
-        remapMultiMachine(event, "ludicrous_combustion_engine_cc", CosmicMachines.LUDICROUS_COMBUSTION_ENGINE);
-        remapMultiMachine(event, "ultimate_combustion_engine_cc", CosmicMachines.ULTIMATE_COMBUSTION_ENGINE);
+        remapMachine(event, "steam_caster", SteamCaster.STEAM_CASTER);
+        remapMachine(event, "steam_mixer", SteamMixer.STEAM_MIXER);
+        remapMachine(event, "industrial_primitive_blast_furnace", IPBF.INDUSTRIAL_PRIMITIVE_BLAST_FURNACE);
+        remapMachine(event, "high_pressure_assembler", SteamAssembler.HIGH_PRESSURE_ASSEMBLER);
+        remapMachine(event, "large_combustion_engine_cc", CosmicMachines.LARGE_COMBUSTION_ENGINE);
+        remapMachine(event, "extreme_combustion_engine_cc", CosmicMachines.EXTREME_COMBUSTION_ENGINE);
+        remapMachine(event, "ludicrous_combustion_engine_cc", CosmicMachines.LUDICROUS_COMBUSTION_ENGINE);
+        remapMachine(event, "ultimate_combustion_engine_cc", CosmicMachines.ULTIMATE_COMBUSTION_ENGINE);
 
         // naq mini reactors
         for (MachineDefinition machine : CosmicMachines.NAQUAHINE_MINI_REACTOR) {
             if (machine == null) continue;
-            String name = (GTValues.VN[machine.getTier()] + "_naquahine_mini_reactor");
-            remapSingleBLocks(event, name, machine);
+            String name = (GTValues.VN[machine.getTier()].toLowerCase(Locale.ROOT) + "_naquahine_mini_reactor");
+            remapMachine(event, name, machine);
         }
 
-        // steam sbs
+        // steam singleblocks
+        remapMachine(event, "lp_steam_wiremill", CosmicMachines.STEAM_WIREMILL.first());
+        remapMachine(event, "hp_steam_wiremill", CosmicMachines.STEAM_WIREMILL.second());
+        remapMachine(event, "lp_steam_wiremill", CosmicMachines.STEAM_BENDER.first());
+        remapMachine(event, "hp_steam_wiremill", CosmicMachines.STEAM_BENDER.second());
 
-        remapSingleBLocks(event, "lp_steam_wiremill", CosmicMachines.STEAM_WIREMILL.first());
-        remapSingleBLocks(event, "hp_steam_wiremill", CosmicMachines.STEAM_WIREMILL.second());
-        remapSingleBLocks(event, "lp_steam_wiremill", CosmicMachines.STEAM_BENDER.first());
-        remapSingleBLocks(event, "hp_steam_wiremill", CosmicMachines.STEAM_BENDER.second());
-
-        remapSingleBLocks(event, "steam_fluid_output_hatch", CosmicMachines.STEAM_EXPORT_HATCH);
-        remapSingleBLocks(event, "steam_fluid_input_hatch", CosmicMachines.STEAM_IMPORT_HATCH);
+        remapMachine(event, "steam_fluid_output_hatch", CosmicMachines.STEAM_EXPORT_HATCH);
+        remapMachine(event, "steam_fluid_input_hatch", CosmicMachines.STEAM_IMPORT_HATCH);
     }
 
     private static void remapItem(MissingMappingsEvent event, ResourceLocation id, ItemLike replacement) {
@@ -190,50 +187,6 @@ public class ForgeCommonEventListener {
         remapItem(event, id, machine.getItem());
         event.getMappings(Registries.BLOCK_ENTITY_TYPE, GTCEu.MOD_ID).forEach(mapping -> {
             if (mapping.getKey().equals(id)) {
-                mapping.remap(machine.getBlockEntityType());
-            }
-        });
-    }
-
-    private static void remapMultiMachine(MissingMappingsEvent event, String id, MultiblockMachineDefinition machine) {
-        ResourceLocation resourceId = GTCEu.id(id);
-
-        event.getMappings(Registries.ITEM, GTCEu.MOD_ID).forEach(mapping -> {
-            if (mapping.getKey().equals(resourceId)) {
-                mapping.remap(machine.getItem());
-            }
-        });
-
-        event.getMappings(Registries.BLOCK, GTCEu.MOD_ID).forEach(mapping -> {
-            if (mapping.getKey().equals(resourceId)) {
-                mapping.remap(machine.getBlock());
-            }
-        });
-
-        event.getMappings(Registries.BLOCK_ENTITY_TYPE, GTCEu.MOD_ID).forEach(mapping -> {
-            if (mapping.getKey().equals(resourceId)) {
-                mapping.remap(machine.getBlockEntityType());
-            }
-        });
-    }
-
-    private static void remapSingleBLocks(MissingMappingsEvent event, String id, MachineDefinition machine) {
-        ResourceLocation resourceId = GTCEu.id(id);
-
-        event.getMappings(Registries.ITEM, GTCEu.MOD_ID).forEach(mapping -> {
-            if (mapping.getKey().equals(resourceId)) {
-                mapping.remap(machine.getItem());
-            }
-        });
-
-        event.getMappings(Registries.BLOCK, GTCEu.MOD_ID).forEach(mapping -> {
-            if (mapping.getKey().equals(resourceId)) {
-                mapping.remap(machine.getBlock());
-            }
-        });
-
-        event.getMappings(Registries.BLOCK_ENTITY_TYPE, GTCEu.MOD_ID).forEach(mapping -> {
-            if (mapping.getKey().equals(resourceId)) {
                 mapping.remap(machine.getBlockEntityType());
             }
         });
