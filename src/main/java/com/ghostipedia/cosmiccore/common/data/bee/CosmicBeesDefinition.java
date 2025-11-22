@@ -1,6 +1,5 @@
-package com.ghostipedia.cosmiccore.bee;
+package com.ghostipedia.cosmiccore.common.data.bee;
 
-import com.ghostipedia.cosmiccore.bee.feature.CosmicBeesItems;
 import com.ghostipedia.cosmiccore.common.data.CosmicItems;
 import com.ghostipedia.cosmiccore.common.item.CosmicBeesHoneyComb;
 

@@ -1,4 +1,4 @@
-package com.ghostipedia.cosmiccore.common.data;
+package com.ghostipedia.cosmiccore.common.item;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;

@@ -1,4 +1,4 @@
-package com.ghostipedia.cosmiccore.common.data.temperature.attribute;
+package com.ghostipedia.cosmiccore.forge;
 
 import com.ghostipedia.cosmiccore.CosmicCore;
 
@@ -23,10 +23,6 @@ public class FireResApplicator {
         if (event.getEntity() instanceof Player player &&
                 event.getEffectInstance().getEffect() == MobEffects.FIRE_RESISTANCE) {
             TemperatureUtil.internal.addHeatResistanceModifier(player, 500.0, heatResModifierID);
-        }
-        if (event.getEntity() instanceof Player player &&
-                event.getEffectInstance().getEffect() == MobEffects.WATER_BREATHING) {
-
         }
     }
 

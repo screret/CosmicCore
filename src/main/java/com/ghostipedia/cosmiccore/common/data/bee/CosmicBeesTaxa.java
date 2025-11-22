@@ -1,4 +1,4 @@
-package com.ghostipedia.cosmiccore.bee;
+package com.ghostipedia.cosmiccore.common.data.bee;
 
 public class CosmicBeesTaxa {
 

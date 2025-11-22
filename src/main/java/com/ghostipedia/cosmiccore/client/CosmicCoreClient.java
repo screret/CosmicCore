@@ -1,7 +1,7 @@
 package com.ghostipedia.cosmiccore.client;
 
 import com.ghostipedia.cosmiccore.CosmicCore;
-import com.ghostipedia.cosmiccore.bee.CosmicBeesSpecies;
+import com.ghostipedia.cosmiccore.common.data.bee.CosmicBeesSpecies;
 import com.ghostipedia.cosmiccore.client.renderer.machine.*;
 
 import com.gregtechceu.gtceu.client.renderer.machine.DynamicRenderManager;
@@ -20,8 +20,6 @@ import lombok.Getter;
 
 import java.io.IOException;
 import java.util.function.Consumer;
-
-import static dev.ftb.mods.ftblibrary.util.KnownServerRegistries.client;
 
 public class CosmicCoreClient {
 

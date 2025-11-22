@@ -1,6 +1,7 @@
-package com.ghostipedia.cosmiccore.common.data;
+package com.ghostipedia.cosmiccore.common.block;
 
 import com.ghostipedia.cosmiccore.CosmicCore;
+import com.ghostipedia.cosmiccore.common.data.CosmicBlocks;
 import com.ghostipedia.cosmiccore.common.data.materials.CosmicMaterials;
 
 import com.gregtechceu.gtceu.api.block.ICoilType;

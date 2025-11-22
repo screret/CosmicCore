@@ -1,4 +1,4 @@
-package com.ghostipedia.cosmiccore.bee;
+package com.ghostipedia.cosmiccore.common.data.bee;
 
 import forestry.api.genetics.ForestryTaxa;
 import forestry.api.genetics.alleles.BeeChromosomes;

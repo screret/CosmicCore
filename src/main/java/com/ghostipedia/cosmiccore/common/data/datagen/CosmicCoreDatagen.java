@@ -1,4 +1,4 @@
-package com.ghostipedia.cosmiccore.common.data;
+package com.ghostipedia.cosmiccore.common.data.datagen;
 
 import com.ghostipedia.cosmiccore.api.registries.CosmicRegistration;
 import com.ghostipedia.cosmiccore.common.data.lang.CosmicLangHandler;
