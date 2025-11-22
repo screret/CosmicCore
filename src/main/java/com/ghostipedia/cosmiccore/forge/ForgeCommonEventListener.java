@@ -3,6 +3,7 @@ package com.ghostipedia.cosmiccore.forge;
 import com.ghostipedia.cosmiccore.CosmicCore;
 import com.ghostipedia.cosmiccore.CosmicUtils;
 import com.ghostipedia.cosmiccore.common.commands.WirelessEnergyCommand;
+import com.ghostipedia.cosmiccore.common.data.CosmicBlocks;
 import com.ghostipedia.cosmiccore.common.data.CosmicItems;
 import com.ghostipedia.cosmiccore.common.data.CosmicMachines;
 import com.ghostipedia.cosmiccore.common.item.behavior.EffectApplicationBehavior;
@@ -12,12 +13,12 @@ import com.ghostipedia.cosmiccore.common.machine.multiblock.multi.SteamCaster;
 import com.ghostipedia.cosmiccore.common.machine.multiblock.multi.SteamMixer;
 import com.ghostipedia.cosmiccore.common.machine.multiblock.part.SoulHatchPartMachine;
 import com.ghostipedia.cosmiccore.mixin.accessor.LivingEntityAccessor;
+import earth.terrarium.adastra.AdAstra;
 
 import com.gregtechceu.gtceu.GTCEu;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.block.MetaMachineBlock;
 import com.gregtechceu.gtceu.api.machine.MachineDefinition;
-import com.gregtechceu.gtceu.api.machine.MultiblockMachineDefinition;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
@@ -28,6 +29,8 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
@@ -38,6 +41,8 @@ import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.MissingMappingsEvent;
+
+import java.util.Locale;
 
 import static com.ghostipedia.cosmiccore.common.item.armor.ChestSanguineWarptechSuite.SANGUINE_SHIELD_NBT_KEY;
 
@@ -65,8 +70,8 @@ public class ForgeCommonEventListener {
             var effects = ((EffectApplicationBehavior) CosmicItems.THE_ONE_RING.get().getComponents().get(0))
                     .getEffects();
             for (var effect : effects) {
-                if (event.player.getRandom().nextFloat() < effect.getSecond()) {
-                    event.player.addEffect(new MobEffectInstance(effect.getFirst()));
+                if (event.player.getRandom().nextFloat() < effect.secondFloat()) {
+                    event.player.addEffect(new MobEffectInstance(effect.first()));
                 }
             }
             ((LivingEntityAccessor) event.player).callRemoveEffectParticles();
@@ -125,6 +130,9 @@ public class ForgeCommonEventListener {
 
     @SubscribeEvent
     public static void remapIds(MissingMappingsEvent event) {
+        // miscellaneous items
+        remapBlockWithItem(event, new ResourceLocation(AdAstra.MOD_ID, "sun_globe"), CosmicBlocks.SUN_GLOBE.get());
+
         // beeg machines
 
         remapMultiMachine(event, "steam_caster", SteamCaster.STEAM_CASTER);
@@ -153,6 +161,38 @@ public class ForgeCommonEventListener {
 
         remapSingleBLocks(event, "steam_fluid_output_hatch", CosmicMachines.STEAM_EXPORT_HATCH);
         remapSingleBLocks(event, "steam_fluid_input_hatch", CosmicMachines.STEAM_IMPORT_HATCH);
+    }
+
+    private static void remapItem(MissingMappingsEvent event, ResourceLocation id, ItemLike replacement) {
+        event.getMappings(Registries.ITEM, id.getNamespace()).forEach(mapping -> {
+            if (mapping.getKey().equals(id)) {
+                mapping.remap(replacement.asItem());
+            }
+        });
+    }
+
+    private static void remapBlock(MissingMappingsEvent event, ResourceLocation id, Block replacement) {
+        event.getMappings(Registries.BLOCK, id.getNamespace()).forEach(mapping -> {
+            if (mapping.getKey().equals(id)) {
+                mapping.remap(replacement);
+            }
+        });
+    }
+
+    private static void remapBlockWithItem(MissingMappingsEvent event, ResourceLocation id, Block replacement) {
+        remapBlock(event, id, replacement);
+        remapItem(event, id, replacement);
+    }
+
+    private static void remapMachine(MissingMappingsEvent event, String name, MachineDefinition machine) {
+        ResourceLocation id = GTCEu.id(name);
+        remapBlock(event, id, machine.getBlock());
+        remapItem(event, id, machine.getItem());
+        event.getMappings(Registries.BLOCK_ENTITY_TYPE, GTCEu.MOD_ID).forEach(mapping -> {
+            if (mapping.getKey().equals(id)) {
+                mapping.remap(machine.getBlockEntityType());
+            }
+        });
     }
 
     private static void remapMultiMachine(MissingMappingsEvent event, String id, MultiblockMachineDefinition machine) {

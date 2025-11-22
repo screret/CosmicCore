@@ -1,16 +1,16 @@
 {
   "variants": {
     "powered=false,waterlogged=false": {
-      "model": "ad_astra:block/sun_globe"
+      "model": "cosmiccore:block/sun_globe"
     },
     "powered=false,waterlogged=true": {
-      "model": "ad_astra:block/sun_globe"
+      "model": "cosmiccore:block/sun_globe"
     },
     "powered=true,waterlogged=false": {
-      "model": "ad_astra:block/sun_globe"
+      "model": "cosmiccore:block/sun_globe"
     },
     "powered=true,waterlogged=true": {
-      "model": "ad_astra:block/sun_globe"
+      "model": "cosmiccore:block/sun_globe"
     }
   }
 }

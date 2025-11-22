@@ -1,0 +1,7 @@
+{
+  "parent": "ad_astra:block/globe",
+  "textures": {
+    "0": "cosmiccore:block/globe/sun_globe",
+    "particle": "cosmiccore:block/globe/sun_globe"
+  }
+}

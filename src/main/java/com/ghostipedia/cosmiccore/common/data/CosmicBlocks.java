@@ -46,17 +46,22 @@ import java.util.function.Supplier;
 
 import static com.ghostipedia.cosmiccore.api.registries.CosmicRegistration.REGISTRATE;
 import static com.gregtechceu.gtceu.api.block.property.GTBlockStateProperties.ACTIVE;
-import static earth.terrarium.adastra.common.registry.ModBlocks.GLOBES;
 
 public class CosmicBlocks {
 
     static {
         REGISTRATE.creativeModeTab(() -> CosmicCreativeModeTabs.COSMIC_CORE);
-
     }
+
+    public static final BlockEntry<GlobeBlock> SUN_GLOBE = REGISTRATE.block("sun_globe", GlobeBlock::new)
+            .initialProperties(() -> Blocks.IRON_BLOCK)
+            .properties(p -> p.noOcclusion())
+            .item(RenderedBlockItem::new)
+            .properties(p -> p.stacksTo(1).rarity(Rarity.RARE))
+            .build()
+            .register();
+
     // Coil Register
-    public static final RegistryEntry<Block> SUN_GLOBE = GLOBES.register("sun_globe",
-            () -> new GlobeBlock(ironProperties().noOcclusion()));
 
     public static final BlockEntry<CoilBlock> COIL_PRISMATIC_TUNGSTENSTEEL = createCoilBlock(
             CosmicCoilBlock.CoilType.PRISMATIC_TUNGSTENSTEEL);
@@ -853,15 +858,6 @@ public class CosmicBlocks {
                     .partialState().with(ACTIVE, false).modelForState().modelFile(inactive).addModel()
                     .partialState().with(ACTIVE, true).modelForState().modelFile(active).addModel();
         };
-    }
-
-    private static BlockBehaviour.Properties ironProperties() {
-        return BlockBehaviour.Properties.of()
-                .mapColor(MapColor.METAL)
-                .instrument(NoteBlockInstrument.IRON_XYLOPHONE)
-                .requiresCorrectToolForDrops()
-                .strength(5, 6)
-                .sound(SoundType.COPPER);
     }
 
     public static BlockEntry<LanternBlock> createLantern(String name, ResourceLocation texture,

@@ -69,9 +69,6 @@ import static wayoftime.bloodmagic.common.item.BloodMagicItems.BLOOD_ORBS;
 
 public class CosmicItems {
 
-    public static final RegistryEntry<Item> SUN_GLOBE = GLOBES.register("sun_globe",
-            () -> new RenderedBlockItem(CosmicBlocks.SUN_GLOBE.get(),
-                    new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
     static {
         CosmicRegistration.REGISTRATE.creativeModeTab(() -> CosmicCreativeModeTabs.COSMIC_CORE);
     }
