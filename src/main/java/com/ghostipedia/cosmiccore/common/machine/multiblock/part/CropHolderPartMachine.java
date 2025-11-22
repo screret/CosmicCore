@@ -1,6 +1,7 @@
 package com.ghostipedia.cosmiccore.common.machine.multiblock.part;
 
 import com.ghostipedia.cosmiccore.api.CosmicGuiTextures;
+import com.ghostipedia.cosmiccore.common.data.tag.item.CosmicItemTags;
 
 import com.gregtechceu.gtceu.api.capability.recipe.IO;
 import com.gregtechceu.gtceu.api.gui.GuiTextures;
@@ -25,7 +26,6 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.IPlantable;
 
-import com.ghostipedia.cosmiccore.common.data.tag.item.CosmicItemTags;
 import lombok.Getter;
 import lombok.Setter;
 import org.jetbrains.annotations.NotNull;

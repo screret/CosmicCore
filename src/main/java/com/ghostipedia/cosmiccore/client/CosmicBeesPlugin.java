@@ -2,8 +2,8 @@ package com.ghostipedia.cosmiccore.client;
 
 import com.ghostipedia.cosmiccore.CosmicCore;
 import com.ghostipedia.cosmiccore.common.data.bee.CosmicBeesDefinition;
-import com.ghostipedia.cosmiccore.common.data.bee.CosmicBeesTaxonomy;
 import com.ghostipedia.cosmiccore.common.data.bee.CosmicBeesItems;
+import com.ghostipedia.cosmiccore.common.data.bee.CosmicBeesTaxonomy;
 import com.ghostipedia.cosmiccore.common.item.CosmicBeesHoneyComb;
 
 import net.minecraft.resources.ResourceLocation;

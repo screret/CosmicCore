@@ -13,7 +13,6 @@ import com.ghostipedia.cosmiccore.common.machine.multiblock.multi.SteamCaster;
 import com.ghostipedia.cosmiccore.common.machine.multiblock.multi.SteamMixer;
 import com.ghostipedia.cosmiccore.common.machine.multiblock.part.SoulHatchPartMachine;
 import com.ghostipedia.cosmiccore.mixin.accessor.LivingEntityAccessor;
-import earth.terrarium.adastra.AdAstra;
 
 import com.gregtechceu.gtceu.GTCEu;
 import com.gregtechceu.gtceu.api.GTValues;
@@ -41,6 +40,8 @@ import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.MissingMappingsEvent;
+
+import earth.terrarium.adastra.AdAstra;
 
 import java.util.Locale;
 

@@ -1,9 +1,9 @@
 package com.ghostipedia.cosmiccore.common.data.bee;
 
 import com.ghostipedia.cosmiccore.CosmicCore;
-import com.ghostipedia.cosmiccore.common.item.CosmicBeesItemHiveFraming;
 import com.ghostipedia.cosmiccore.common.data.CosmicGendustryUpgradeType;
 import com.ghostipedia.cosmiccore.common.item.CosmicBeesHoneyComb;
+import com.ghostipedia.cosmiccore.common.item.CosmicBeesItemHiveFraming;
 import com.ghostipedia.cosmiccore.common.item.CosmicBeesItemHoneyComb;
 
 import forestry.modules.features.*;

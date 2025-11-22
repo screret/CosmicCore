@@ -1,12 +1,8 @@
 package com.ghostipedia.cosmiccore.common.data;
 
 import com.ghostipedia.cosmiccore.CosmicCore;
-import com.ghostipedia.cosmiccore.api.item.CosmicComponentItem;
 import com.ghostipedia.cosmiccore.api.item.LinkedTerminalBehavior;
 import com.ghostipedia.cosmiccore.api.item.armor.*;
-import com.ghostipedia.cosmiccore.api.item.component.ICanDropOverride;
-import com.ghostipedia.cosmiccore.api.item.component.IFoilOverride;
-import com.ghostipedia.cosmiccore.api.item.component.IItemDestroyOverride;
 import com.ghostipedia.cosmiccore.api.registries.CosmicRegistration;
 import com.ghostipedia.cosmiccore.client.renderer.item.HaloItemRenderer;
 import com.ghostipedia.cosmiccore.client.renderer.item.RadianceItemRenderer;
@@ -80,10 +76,11 @@ public class CosmicItems {
             () -> new BloodOrb(new ResourceLocation("bloodmagic", "voidsentbloodorb"), 7, 50000000, 1000));
     public static final BloodOrbRegistryObject<BloodOrb> ORB_SOVEREIGN = BLOOD_ORBS.register("sovereignbloodorb",
             () -> new BloodOrb(new ResourceLocation("bloodmagic", "sovereignbloodorb"), 8, 100000000, 10000));
-    
+
     // Modules
 
-    public static final ItemEntry<SpiritShardItem> ETHERIC_SPIRIT_ITEM = REGISTRATE.item("etheric_spirit", p -> new SpiritShardItem(p, CosmicItems.ETHERIC_SPIRIT))
+    public static final ItemEntry<SpiritShardItem> ETHERIC_SPIRIT_ITEM = REGISTRATE
+            .item("etheric_spirit", p -> new SpiritShardItem(p, CosmicItems.ETHERIC_SPIRIT))
             .lang("Etheric Spirit")
             .properties(p -> p.stacksTo(64))
             .register();
@@ -94,7 +91,8 @@ public class CosmicItems {
             .setItemColor(SpiritVisualMotif::getPrimaryColor)
             .build());
 
-    public static final ItemEntry<SpiritShardItem> WRATHFUL_SPIRIT_ITEM = REGISTRATE.item("wrathful_spirit", p -> new SpiritShardItem(p, CosmicItems.WRATHFUL_SPIRIT))
+    public static final ItemEntry<SpiritShardItem> WRATHFUL_SPIRIT_ITEM = REGISTRATE
+            .item("wrathful_spirit", p -> new SpiritShardItem(p, CosmicItems.WRATHFUL_SPIRIT))
             .lang("Wrathful Spirit")
             .properties(p -> p.stacksTo(64))
             .register();
@@ -105,7 +103,8 @@ public class CosmicItems {
             .setItemColor(SpiritVisualMotif::getPrimaryColor)
             .build());
 
-    public static final ItemEntry<SpiritShardItem> PRIDEFUL_SPIRIT_ITEM = REGISTRATE.item("prideful_spirit", p -> new SpiritShardItem(p, CosmicItems.PRIDEFUL_SPIRIT))
+    public static final ItemEntry<SpiritShardItem> PRIDEFUL_SPIRIT_ITEM = REGISTRATE
+            .item("prideful_spirit", p -> new SpiritShardItem(p, CosmicItems.PRIDEFUL_SPIRIT))
             .lang("Prideful Spirit")
             .properties(p -> p.stacksTo(64))
             .register();
@@ -116,7 +115,8 @@ public class CosmicItems {
             .setItemColor(SpiritVisualMotif::getPrimaryColor)
             .build());
 
-    public static final ItemEntry<SpiritShardItem> MALICE_SPIRIT_ITEM = REGISTRATE.item("malice_spirit", p -> new SpiritShardItem(p, CosmicItems.MALICE_SPIRIT))
+    public static final ItemEntry<SpiritShardItem> MALICE_SPIRIT_ITEM = REGISTRATE
+            .item("malice_spirit", p -> new SpiritShardItem(p, CosmicItems.MALICE_SPIRIT))
             .lang("Malice Spirit")
             .properties(p -> p.stacksTo(64))
             .register();
@@ -184,7 +184,8 @@ public class CosmicItems {
             .lang("Pale Scrap")
             .properties(p -> p.stacksTo(64))
             .register();
-    public static final ItemEntry<Item> ABRASIVE_ROSIN_MILLSTONES = REGISTRATE.item("abrasive_rosin_millstones", Item::new)
+    public static final ItemEntry<Item> ABRASIVE_ROSIN_MILLSTONES = REGISTRATE
+            .item("abrasive_rosin_millstones", Item::new)
             .lang("Abrasive Rosin Millstones")
             .properties(p -> p.stacksTo(64))
             .register();
@@ -198,38 +199,46 @@ public class CosmicItems {
             .properties(p -> p.stacksTo(64))
             .register();
 
-    public static final ItemEntry<Item> HARMONICALLY_TUNED_CIRCUIT_BOARD = REGISTRATE.item("harmonically_tuned_circuit_board", Item::new)
+    public static final ItemEntry<Item> HARMONICALLY_TUNED_CIRCUIT_BOARD = REGISTRATE
+            .item("harmonically_tuned_circuit_board", Item::new)
             .lang("Harmonically Tuned Circuit Board")
             .properties(p -> p.stacksTo(64))
             .register();
-    public static final ItemEntry<Item> HARMONICALLY_TUNED_PRINTED_CIRCUIT_BOARD = REGISTRATE.item("harmonically_tuned_printed_circuit_board", Item::new)
+    public static final ItemEntry<Item> HARMONICALLY_TUNED_PRINTED_CIRCUIT_BOARD = REGISTRATE
+            .item("harmonically_tuned_printed_circuit_board", Item::new)
             .lang("Harmonically Tuned Printed Circuit Board")
             .properties(p -> p.stacksTo(64))
             .register();
 
-    public static final ItemEntry<Item> OPTICALLY_REFINED_CIRCUIT_BOARD = REGISTRATE.item("optically_refined_circuit_board", Item::new)
+    public static final ItemEntry<Item> OPTICALLY_REFINED_CIRCUIT_BOARD = REGISTRATE
+            .item("optically_refined_circuit_board", Item::new)
             .lang("Optically Refined Circuit Board")
             .properties(p -> p.stacksTo(64))
             .register();
-    public static final ItemEntry<Item> OPTICALLY_REFINED_PRINTED_CIRCUIT_BOARD = REGISTRATE.item("optically_refined_printed_circuit_board", Item::new)
+    public static final ItemEntry<Item> OPTICALLY_REFINED_PRINTED_CIRCUIT_BOARD = REGISTRATE
+            .item("optically_refined_printed_circuit_board", Item::new)
             .lang("Optically Refined Printed Circuit Board")
             .properties(p -> p.stacksTo(64))
             .register();
 
-    public static final ItemEntry<Item> PERSONA_CORE_ASSISTED_CIRCUIT_BOARD = REGISTRATE.item("persona_core_assisted_circuit_board", Item::new)
+    public static final ItemEntry<Item> PERSONA_CORE_ASSISTED_CIRCUIT_BOARD = REGISTRATE
+            .item("persona_core_assisted_circuit_board", Item::new)
             .lang("Persona Core Assisted Circuit Board")
             .properties(p -> p.stacksTo(64))
             .register();
-    public static final ItemEntry<Item> PERSONA_CORE_ASSISTED_PRINTED_CIRCUIT_BOARD = REGISTRATE.item("persona_core_assisted_printed_circuit_board", Item::new)
+    public static final ItemEntry<Item> PERSONA_CORE_ASSISTED_PRINTED_CIRCUIT_BOARD = REGISTRATE
+            .item("persona_core_assisted_printed_circuit_board", Item::new)
             .lang("Persona Core Assisted Printed Circuit Board")
             .properties(p -> p.stacksTo(64))
             .register();
 
-    public static final ItemEntry<Item> RECORD_KEPT_CIRCUIT_BOARD = REGISTRATE.item("record_kept_circuit_board", Item::new)
+    public static final ItemEntry<Item> RECORD_KEPT_CIRCUIT_BOARD = REGISTRATE
+            .item("record_kept_circuit_board", Item::new)
             .lang("Record Kept Circuit Board")
             .properties(p -> p.stacksTo(64))
             .register();
-    public static final ItemEntry<Item> RECORD_KEPT_PRINTED_CIRCUIT_BOARD = REGISTRATE.item("record_kept_printed_circuit_board", Item::new)
+    public static final ItemEntry<Item> RECORD_KEPT_PRINTED_CIRCUIT_BOARD = REGISTRATE
+            .item("record_kept_printed_circuit_board", Item::new)
             .lang("Record Kept Printed Circuit Board")
             .properties(p -> p.stacksTo(64))
             .register();
@@ -293,7 +302,8 @@ public class CosmicItems {
             .lang("Fused Harmonic Wafer of Esoterica")
             .properties(p -> p.stacksTo(64))
             .register();
-    public static final ItemEntry<Item> HARMONIC_OSCILLATING_CHIP = REGISTRATE.item("harmonic_chiplet_oscillating", Item::new)
+    public static final ItemEntry<Item> HARMONIC_OSCILLATING_CHIP = REGISTRATE
+            .item("harmonic_chiplet_oscillating", Item::new)
             .lang("Harmonic Central Processing Unit")
             .properties(p -> p.stacksTo(64))
             .register();
@@ -303,7 +313,8 @@ public class CosmicItems {
             .properties(p -> p.stacksTo(64))
             .register();
 
-    public static final ItemEntry<Item> NULLIFIED_HARMONICS_WAFER = REGISTRATE.item("nullified_harmonics_wafer", Item::new)
+    public static final ItemEntry<Item> NULLIFIED_HARMONICS_WAFER = REGISTRATE
+            .item("nullified_harmonics_wafer", Item::new)
             .lang("Nullified Harmonic Wafer")
             .properties(p -> p.stacksTo(64))
             .register();
@@ -391,11 +402,13 @@ public class CosmicItems {
             .lang("Donk")
             .properties(p -> p.stacksTo(16))
             .register();
-    public static final ItemEntry<Item> DILUMIXAL_NAQ_DOPED_BOULE = REGISTRATE.item("dilumixal_naquadah_doped_silicon_boule", Item::new)
+    public static final ItemEntry<Item> DILUMIXAL_NAQ_DOPED_BOULE = REGISTRATE
+            .item("dilumixal_naquadah_doped_silicon_boule", Item::new)
             .lang("DiLumixal Naquadah-doped Silicon Boule")
             .properties(p -> p.stacksTo(64))
             .register();
-    public static final ItemEntry<Item> DILUMIXAL_NAQ_DOPED_WAFER = REGISTRATE.item("dilumixal_naquadah_doped_silicon_wafer", Item::new)
+    public static final ItemEntry<Item> DILUMIXAL_NAQ_DOPED_WAFER = REGISTRATE
+            .item("dilumixal_naquadah_doped_silicon_wafer", Item::new)
             .lang("DiLumixal Naquadah-doped Silicon Wafer")
             .properties(p -> p.stacksTo(64))
             .register();
@@ -403,7 +416,8 @@ public class CosmicItems {
             .lang("Crystal Chiplet Mask")
             .properties(p -> p.stacksTo(64))
             .register();
-    public static final ItemEntry<Item> MASKED_CRYSTAL_CHIPLET_PACKAGE = REGISTRATE.item("masked_crystal_chiplet_package", Item::new)
+    public static final ItemEntry<Item> MASKED_CRYSTAL_CHIPLET_PACKAGE = REGISTRATE
+            .item("masked_crystal_chiplet_package", Item::new)
             .lang("Masked Crystal Chiplet Package")
             .properties(p -> p.stacksTo(64))
             .register();
@@ -411,7 +425,8 @@ public class CosmicItems {
             .lang("Crystal Chiplet Base")
             .properties(p -> p.stacksTo(64))
             .register();
-    public static final ItemEntry<Item> ENGRAVED_CRYSTAL_CHIPLET = REGISTRATE.item("engraved_crystal_chiplet", Item::new)
+    public static final ItemEntry<Item> ENGRAVED_CRYSTAL_CHIPLET = REGISTRATE
+            .item("engraved_crystal_chiplet", Item::new)
             .lang("Engraved Crystal Chiplet")
             .properties(p -> p.stacksTo(64))
             .register();
@@ -439,15 +454,18 @@ public class CosmicItems {
             .lang("Crystalline Inductor")
             .properties(p -> p.stacksTo(64))
             .register();
-    public static final ItemEntry<ItemBloodOrb> ITEM_ORB_ASCENDANT = REGISTRATE.item("asc_blood_orb", (p) -> new ItemBloodOrb(ORB_ASCENDANT))
+    public static final ItemEntry<ItemBloodOrb> ITEM_ORB_ASCENDANT = REGISTRATE
+            .item("asc_blood_orb", (p) -> new ItemBloodOrb(ORB_ASCENDANT))
             .lang("Ascendant Blood Orb")
             .properties(p -> p.stacksTo(1))
             .register();
-    public static final ItemEntry<ItemBloodOrb> ITEM_ORB_VOIDSENT = REGISTRATE.item("void_blood_orb", (p) -> new ItemBloodOrb(ORB_VOIDSENT))
+    public static final ItemEntry<ItemBloodOrb> ITEM_ORB_VOIDSENT = REGISTRATE
+            .item("void_blood_orb", (p) -> new ItemBloodOrb(ORB_VOIDSENT))
             .lang("Voidsent Blood Orb")
             .properties(p -> p.stacksTo(1))
             .register();
-    public static final ItemEntry<ItemBloodOrb> ITEM_ORB_SOVEREIGN = REGISTRATE.item("sov_blood_orb", (p) -> new ItemBloodOrb(ORB_SOVEREIGN))
+    public static final ItemEntry<ItemBloodOrb> ITEM_ORB_SOVEREIGN = REGISTRATE
+            .item("sov_blood_orb", (p) -> new ItemBloodOrb(ORB_SOVEREIGN))
             .lang("Sovereign Blood Orb")
             .properties(p -> p.stacksTo(1))
             .register();
@@ -542,7 +560,8 @@ public class CosmicItems {
             .lang("Gelatin Scaffold")
             .properties(p -> p.stacksTo(16))
             .register();
-    public static final ItemEntry<Item> BIFIDOBACTERIUM_BREVE_CULTURE = REGISTRATE.item("bifidobacterium_breve_culture", Item::new)
+    public static final ItemEntry<Item> BIFIDOBACTERIUM_BREVE_CULTURE = REGISTRATE
+            .item("bifidobacterium_breve_culture", Item::new)
             .lang("Bifidobacterium Breve Culture")
             .properties(p -> p.stacksTo(4))
             .register();
@@ -551,7 +570,8 @@ public class CosmicItems {
             .properties(p -> p.stacksTo(64))
             .register();
     // Strep
-    public static final ItemEntry<Item> STREPTOCOCCUS_PYOGENES_CULTURE = REGISTRATE.item("streptococcus_pyogenes_culture", Item::new)
+    public static final ItemEntry<Item> STREPTOCOCCUS_PYOGENES_CULTURE = REGISTRATE
+            .item("streptococcus_pyogenes_culture", Item::new)
             .lang("Streptococcus Pyogenes Culture")
             .properties(p -> p.stacksTo(4))
             .register();
@@ -560,7 +580,8 @@ public class CosmicItems {
             .properties(p -> p.stacksTo(64))
             .register();
     // E COLI
-    public static final ItemEntry<Item> ESCHERICHIA_COLI_CULTURE = REGISTRATE.item("escherichia_coli_culture", Item::new)
+    public static final ItemEntry<Item> ESCHERICHIA_COLI_CULTURE = REGISTRATE
+            .item("escherichia_coli_culture", Item::new)
             .lang("Escherichia Coli Culture")
             .properties(p -> p.stacksTo(4))
             .register();
@@ -581,7 +602,8 @@ public class CosmicItems {
             .lang("Ultrasonic Homogenizer")
             .properties(p -> p.stacksTo(1))
             .register();
-    public static final ItemEntry<Item> COMPUTATION_SUPPORT_UNIT = REGISTRATE.item("computation_support_unit", Item::new)
+    public static final ItemEntry<Item> COMPUTATION_SUPPORT_UNIT = REGISTRATE
+            .item("computation_support_unit", Item::new)
             .lang("Computation Support Unit")
             .properties(p -> p.stacksTo(16))
             .register();
@@ -599,11 +621,13 @@ public class CosmicItems {
             .properties(p -> p.stacksTo(64))
             .register();
     // UNSURE IF THESE WILL BE USED
-    public static final ItemEntry<Item> RESPIRATORY_SCULK_HEMOCYTOBLAST = REGISTRATE.item("resipiratory_sculk_hemocytoblast", Item::new)
+    public static final ItemEntry<Item> RESPIRATORY_SCULK_HEMOCYTOBLAST = REGISTRATE
+            .item("resipiratory_sculk_hemocytoblast", Item::new)
             .lang("Respiratory Sculk Hemocytoblast")
             .properties(p -> p.stacksTo(64))
             .register();
-    public static final ItemEntry<Item> SATURATED_SCULK_HEMOCYTOBLAST = REGISTRATE.item("saturated_sculk_hemocytoblast", Item::new)
+    public static final ItemEntry<Item> SATURATED_SCULK_HEMOCYTOBLAST = REGISTRATE
+            .item("saturated_sculk_hemocytoblast", Item::new)
             .lang("Saturated Sculk Hemocytoblast")
             .properties(p -> p.stacksTo(64))
             .register();
@@ -674,23 +698,28 @@ public class CosmicItems {
             .properties(p -> p.stacksTo(8))
             .register();
 
-    public static final ItemEntry<Item> NEURO_PROCESSING_ASSEMBLY = REGISTRATE.item("neuro_processing_assembly", Item::new)
+    public static final ItemEntry<Item> NEURO_PROCESSING_ASSEMBLY = REGISTRATE
+            .item("neuro_processing_assembly", Item::new)
             .lang("Neuroprocessing Assembly Board")
             .properties(p -> p.stacksTo(16))
             .register();
-    public static final ItemEntry<Item> SOMATIC_PROCESSING_ASSEMBLY = REGISTRATE.item("somatic_processing_assembly", Item::new)
+    public static final ItemEntry<Item> SOMATIC_PROCESSING_ASSEMBLY = REGISTRATE
+            .item("somatic_processing_assembly", Item::new)
             .lang("Somatoprocessing Assembly Board")
             .properties(p -> p.stacksTo(16))
             .register();
-    public static final ItemEntry<Item> OPTIC_PROCESSING_ASSEMBLY = REGISTRATE.item("optical_processing_assembly", Item::new)
+    public static final ItemEntry<Item> OPTIC_PROCESSING_ASSEMBLY = REGISTRATE
+            .item("optical_processing_assembly", Item::new)
             .lang("Optical Processor Assembly")
             .properties(p -> p.stacksTo(16))
             .register();
-    public static final ItemEntry<Item> SELF_AWARE_PROCESSING_ASSEMBLY = REGISTRATE.item("self_aware_processing_assembly", Item::new)
+    public static final ItemEntry<Item> SELF_AWARE_PROCESSING_ASSEMBLY = REGISTRATE
+            .item("self_aware_processing_assembly", Item::new)
             .lang("Self Aware Processor Assembly")
             .properties(p -> p.stacksTo(16))
             .register();
-    public static final ItemEntry<Item> RECORD_KEEPING_PROCESSOR_ASSEMBLY = REGISTRATE.item("record_keeping_processor_assembly", Item::new)
+    public static final ItemEntry<Item> RECORD_KEEPING_PROCESSOR_ASSEMBLY = REGISTRATE
+            .item("record_keeping_processor_assembly", Item::new)
             .lang("Record Keeping Processor Assembly")
             .properties(p -> p.stacksTo(16))
             .register();
@@ -698,7 +727,8 @@ public class CosmicItems {
             .lang("§5Programmable Mote")
             .properties(p -> p.stacksTo(64))
             .register();
-    public static final ItemEntry<ComponentItem> PERPETUITY_SHARD = REGISTRATE.item("shard_of_perpetuity", ComponentItem::create)
+    public static final ItemEntry<ComponentItem> PERPETUITY_SHARD = REGISTRATE
+            .item("shard_of_perpetuity", ComponentItem::create)
             .lang("Shard of Perpetuity")
             .properties(p -> p.stacksTo(64))
             .onRegister(attach(new TooltipBehavior(tooltips -> {
@@ -706,7 +736,8 @@ public class CosmicItems {
                 tooltips.add(Component.translatable("cosmiccore.lore.shard_small.1"));
             })))
             .register();
-    public static final ItemEntry<ComponentItem> PERPETUITY_SHARD_LARGE = REGISTRATE.item("large_shard_of_perpetuity", ComponentItem::create)
+    public static final ItemEntry<ComponentItem> PERPETUITY_SHARD_LARGE = REGISTRATE
+            .item("large_shard_of_perpetuity", ComponentItem::create)
             .lang("Large Shard of Perpetuity")
             .properties(p -> p.stacksTo(64))
             .onRegister(attach(new TooltipBehavior(tooltips -> {
@@ -714,7 +745,8 @@ public class CosmicItems {
                 tooltips.add(Component.translatable("cosmiccore.lore.shard_large.1"));
             })))
             .register();
-    public static final ItemEntry<ComponentItem> PERPETUITY_SHARD_MASSIVE = REGISTRATE.item("cluster_of_perpetuity", ComponentItem::create)
+    public static final ItemEntry<ComponentItem> PERPETUITY_SHARD_MASSIVE = REGISTRATE
+            .item("cluster_of_perpetuity", ComponentItem::create)
             .lang("Cluster of Perpetuity")
             .properties(p -> p.stacksTo(60))
             .onRegister(attach(new TooltipBehavior(tooltips -> {
@@ -730,19 +762,19 @@ public class CosmicItems {
             .register();
 
     public static final ItemEntry<CosmicScytheItem> NANO_SCYTHE = REGISTRATE.item("nano_scythe",
-                    p -> new CosmicScytheItem(SOUL_STAINED_STEEL, 10.5f, 0.5f, p))
+            p -> new CosmicScytheItem(SOUL_STAINED_STEEL, 10.5f, 0.5f, p))
             .properties(p -> p.stacksTo(1))
             .lang("Nano Scythe")
             .register();
 
     public static final ItemEntry<CosmicScytheItem> QUANTUM_SCYTHE = REGISTRATE.item("quantum_scythe",
-                    p -> new CosmicScytheItem(SOUL_STAINED_STEEL, 25.5f, 0.5f, p))
+            p -> new CosmicScytheItem(SOUL_STAINED_STEEL, 25.5f, 0.5f, p))
             .properties(p -> p.stacksTo(1))
             .lang("Quark Scythe")
             .register();
 
     public static final ItemEntry<CosmicScytheItem> SANGUINE_SCYTHE = REGISTRATE.item("sanguine_scythe",
-                    p -> new CosmicScytheItem(SOUL_STAINED_STEEL, 100f, 0.5f, p))
+            p -> new CosmicScytheItem(SOUL_STAINED_STEEL, 100f, 0.5f, p))
             .properties(p -> p.stacksTo(1))
             .lang("Sanguine Scythe")
             .register();
@@ -844,7 +876,8 @@ public class CosmicItems {
             .lang("Multilayered Enthel Circuit Board")
             .properties(p -> p.stacksTo(64))
             .register();
-    public static final ItemEntry<Item> ENTHELIC_PCB = REGISTRATE.item("spirit_engraved_enthel_circuit_board", Item::new)
+    public static final ItemEntry<Item> ENTHELIC_PCB = REGISTRATE
+            .item("spirit_engraved_enthel_circuit_board", Item::new)
             .lang("Spirit Engraved Enthel Circuit Board")
             .properties(p -> p.stacksTo(64))
             .register();
@@ -892,7 +925,8 @@ public class CosmicItems {
             .tag(CustomTags.HV_CIRCUITS)
             .properties(p -> p.stacksTo(64))
             .register();
-    public static final ItemEntry<Item> HEX_PROCESSOR_SUPERCOMPUTER = REGISTRATE.item("hex_processor_supercomputer", Item::new)
+    public static final ItemEntry<Item> HEX_PROCESSOR_SUPERCOMPUTER = REGISTRATE
+            .item("hex_processor_supercomputer", Item::new)
             .lang("Hex Processor Supercomputer")
             .tag(CustomTags.EV_CIRCUITS)
             .properties(p -> p.stacksTo(64))
@@ -908,17 +942,20 @@ public class CosmicItems {
             .tag(CustomTags.HV_CIRCUITS)
             .properties(p -> p.stacksTo(64))
             .register();
-    public static final ItemEntry<Item> ENTHELIC_PROCESSOR_ASSEMBLY = REGISTRATE.item("enthelic_processor_assembly", Item::new)
+    public static final ItemEntry<Item> ENTHELIC_PROCESSOR_ASSEMBLY = REGISTRATE
+            .item("enthelic_processor_assembly", Item::new)
             .lang("Enthelic Processor Assembly")
             .tag(CustomTags.EV_CIRCUITS)
             .properties(p -> p.stacksTo(64))
             .register();
-    public static final ItemEntry<Item> ENTHELIC_PROCESSOR_SUPERCOMPUTER = REGISTRATE.item("enthelic_processor_supercomputer", Item::new)
+    public static final ItemEntry<Item> ENTHELIC_PROCESSOR_SUPERCOMPUTER = REGISTRATE
+            .item("enthelic_processor_supercomputer", Item::new)
             .lang("Enthelic Processor Supercomputer")
             .tag(CustomTags.IV_CIRCUITS)
             .properties(p -> p.stacksTo(64))
             .register();
-    public static final ItemEntry<Item> ENTHELIC_PROCESSOR_MAINFRAME = REGISTRATE.item("enthelic_processor_mainframe", Item::new)
+    public static final ItemEntry<Item> ENTHELIC_PROCESSOR_MAINFRAME = REGISTRATE
+            .item("enthelic_processor_mainframe", Item::new)
             .lang("Enthelic Processor Mainframe")
             .tag(CustomTags.LuV_CIRCUITS)
             .properties(p -> p.stacksTo(64))
@@ -930,17 +967,20 @@ public class CosmicItems {
             .tag(CustomTags.EV_CIRCUITS)
             .properties(p -> p.stacksTo(64))
             .register();
-    public static final ItemEntry<Item> LUCIDIC_PROCESSOR_ASSEMBLY = REGISTRATE.item("lucidic_processor_assembly", Item::new)
+    public static final ItemEntry<Item> LUCIDIC_PROCESSOR_ASSEMBLY = REGISTRATE
+            .item("lucidic_processor_assembly", Item::new)
             .lang("Lucidic Processor Assembly")
             .tag(CustomTags.IV_CIRCUITS)
             .properties(p -> p.stacksTo(64))
             .register();
-    public static final ItemEntry<Item> LUCIDIC_PROCESSOR_SUPERCOMPUTER = REGISTRATE.item("lucidic_processor_supercomputer", Item::new)
+    public static final ItemEntry<Item> LUCIDIC_PROCESSOR_SUPERCOMPUTER = REGISTRATE
+            .item("lucidic_processor_supercomputer", Item::new)
             .lang("Lucidic Processor Supercomputer")
             .tag(CustomTags.LuV_CIRCUITS)
             .properties(p -> p.stacksTo(64))
             .register();
-    public static final ItemEntry<Item> LUCIDIC_PROCESSOR_MAINFRAME = REGISTRATE.item("lucidic_processor_mainframe", Item::new)
+    public static final ItemEntry<Item> LUCIDIC_PROCESSOR_MAINFRAME = REGISTRATE
+            .item("lucidic_processor_mainframe", Item::new)
             .lang("Lucidic Processor Mainframe")
             .tag(CustomTags.ZPM_CIRCUITS)
             .properties(p -> p.stacksTo(64))
@@ -951,15 +991,18 @@ public class CosmicItems {
             .lang("Harmonic Processor")
             .properties(p -> p.stacksTo(64))
             .register();
-    public static final ItemEntry<Item> SONAR_PROCESSOR_ASSEMBLY = REGISTRATE.item("harmonic_processor_assembly", Item::new)
+    public static final ItemEntry<Item> SONAR_PROCESSOR_ASSEMBLY = REGISTRATE
+            .item("harmonic_processor_assembly", Item::new)
             .lang("Harmonic Processor Assembly")
             .properties(p -> p.stacksTo(64))
             .register();
-    public static final ItemEntry<Item> SONAR_PROCESSOR_SUPERCOMPUTER = REGISTRATE.item("harmonic_processor_supercomputer", Item::new)
+    public static final ItemEntry<Item> SONAR_PROCESSOR_SUPERCOMPUTER = REGISTRATE
+            .item("harmonic_processor_supercomputer", Item::new)
             .lang("Harmonic Processor Supercomputer")
             .properties(p -> p.stacksTo(64))
             .register();
-    public static final ItemEntry<Item> SONAR_PROCESSOR_MAINFRAME = REGISTRATE.item("harmonic_processor_mainframe", Item::new)
+    public static final ItemEntry<Item> SONAR_PROCESSOR_MAINFRAME = REGISTRATE
+            .item("harmonic_processor_mainframe", Item::new)
             .lang("Harmonic Processor Mainframe")
             .properties(p -> p.stacksTo(64))
             .register();
@@ -968,15 +1011,18 @@ public class CosmicItems {
             .lang("Optical Processor")
             .properties(p -> p.stacksTo(64))
             .register();
-    public static final ItemEntry<Item> OPTICAL_PROCESSOR_ASSEMBLY = REGISTRATE.item("optical_processor_assembly", Item::new)
+    public static final ItemEntry<Item> OPTICAL_PROCESSOR_ASSEMBLY = REGISTRATE
+            .item("optical_processor_assembly", Item::new)
             .lang("Optical Processor Assembly")
             .properties(p -> p.stacksTo(64))
             .register();
-    public static final ItemEntry<Item> OPTICAL_PROCESSOR_SUPERCOMPUTER = REGISTRATE.item("optical_processor_supercomputer", Item::new)
+    public static final ItemEntry<Item> OPTICAL_PROCESSOR_SUPERCOMPUTER = REGISTRATE
+            .item("optical_processor_supercomputer", Item::new)
             .lang("Optical Processor Supercomputer")
             .properties(p -> p.stacksTo(64))
             .register();
-    public static final ItemEntry<Item> OPTICAL_PROCESSOR_MAINFRAME = REGISTRATE.item("optical_processor_mainframe", Item::new)
+    public static final ItemEntry<Item> OPTICAL_PROCESSOR_MAINFRAME = REGISTRATE
+            .item("optical_processor_mainframe", Item::new)
             .lang("Optical Processor Mainframe")
             .properties(p -> p.stacksTo(64))
             .register();
@@ -985,15 +1031,18 @@ public class CosmicItems {
             .lang("Suelescent Processor")
             .properties(p -> p.stacksTo(64))
             .register();
-    public static final ItemEntry<Item> COSMIC_PROCESSOR_ASSEMBLY = REGISTRATE.item("suelescent_processor_assembly", Item::new)
+    public static final ItemEntry<Item> COSMIC_PROCESSOR_ASSEMBLY = REGISTRATE
+            .item("suelescent_processor_assembly", Item::new)
             .lang("Suelescent Processor Assembly")
             .properties(p -> p.stacksTo(64))
             .register();
-    public static final ItemEntry<Item> COSMIC_PROCESSOR_SUPERCOMPUTER = REGISTRATE.item("suelescent_processor_supercomputer", Item::new)
+    public static final ItemEntry<Item> COSMIC_PROCESSOR_SUPERCOMPUTER = REGISTRATE
+            .item("suelescent_processor_supercomputer", Item::new)
             .lang("Suelescent Processor Supercomputer")
             .properties(p -> p.stacksTo(64))
             .register();
-    public static final ItemEntry<Item> COSMIC_PROCESSOR_MAINFRAME = REGISTRATE.item("suelescent_processor_mainframe", Item::new)
+    public static final ItemEntry<Item> COSMIC_PROCESSOR_MAINFRAME = REGISTRATE
+            .item("suelescent_processor_mainframe", Item::new)
             .lang("Suelescent Processor Mainframe")
             .properties(p -> p.stacksTo(64))
             .register();
@@ -1002,38 +1051,45 @@ public class CosmicItems {
             .lang("Akashic Processor")
             .properties(p -> p.stacksTo(64))
             .register();
-    public static final ItemEntry<Item> PSIONIC_PROCESSOR_ASSEMBLY = REGISTRATE.item("akashic_processor_assembly", Item::new)
+    public static final ItemEntry<Item> PSIONIC_PROCESSOR_ASSEMBLY = REGISTRATE
+            .item("akashic_processor_assembly", Item::new)
             .lang("Akashic Processor Assembly")
             .properties(p -> p.stacksTo(64))
             .register();
-    public static final ItemEntry<Item> PSIONIC_PROCESSOR_SUPERCOMPUTER = REGISTRATE.item("akashic_processor_supercomputer", Item::new)
+    public static final ItemEntry<Item> PSIONIC_PROCESSOR_SUPERCOMPUTER = REGISTRATE
+            .item("akashic_processor_supercomputer", Item::new)
             .lang("Akashic Processor Supercomputer")
             .properties(p -> p.stacksTo(64))
             .register();
-    public static final ItemEntry<Item> PSIONIC_PROCESSOR_MAINFRAME = REGISTRATE.item("akashic_processor_mainframe", Item::new)
+    public static final ItemEntry<Item> PSIONIC_PROCESSOR_MAINFRAME = REGISTRATE
+            .item("akashic_processor_mainframe", Item::new)
             .lang("Akashic Processor Mainframe")
             .properties(p -> p.stacksTo(64))
             .register();
     // Eschaton (UIV-MAX)
-    public static final ItemEntry<ComponentItem> ESCHATON_PROCESSOR = REGISTRATE.item("eschaton_processor", ComponentItem::create)
+    public static final ItemEntry<ComponentItem> ESCHATON_PROCESSOR = REGISTRATE
+            .item("eschaton_processor", ComponentItem::create)
             .lang("Eschaton Processor")
             .properties(p -> p.stacksTo(64))
             .onRegister(attachRenderer(() -> HaloItemRenderer.create(6, 0xFFFFFFFF,
                     CosmicCore.id("block/iris/rnd/tentacle_halo"), true, false)))
             .register();
-    public static final ItemEntry<ComponentItem> ESCHATON_PROCESSOR_ASSEMBLY = REGISTRATE.item("eschaton_processor_assembly", ComponentItem::create)
+    public static final ItemEntry<ComponentItem> ESCHATON_PROCESSOR_ASSEMBLY = REGISTRATE
+            .item("eschaton_processor_assembly", ComponentItem::create)
             .lang("Eschaton Processor Assembly")
             .properties(p -> p.stacksTo(64))
             .onRegister(attachRenderer(() -> HaloItemRenderer.create(6, 0xFFFFFFFF,
                     CosmicCore.id("block/iris/rnd/tentacle_halo"), true, false)))
             .register();
-    public static final ItemEntry<ComponentItem> ESCHATON_PROCESSOR_SUPERCOMPUTER = REGISTRATE.item("eschaton_processor_supercomputer", ComponentItem::create)
+    public static final ItemEntry<ComponentItem> ESCHATON_PROCESSOR_SUPERCOMPUTER = REGISTRATE
+            .item("eschaton_processor_supercomputer", ComponentItem::create)
             .lang("Eschaton Processor Supercomputer")
             .properties(p -> p.stacksTo(64))
             .onRegister(attachRenderer(() -> HaloItemRenderer.create(6, 0xFFFFFFFF,
                     CosmicCore.id("block/iris/rnd/tentacle_halo"), true, false)))
             .register();
-    public static final ItemEntry<ComponentItem> ESCHATON_PROCESSOR_MAINFRAME = REGISTRATE.item("eschaton_processor_mainframe", ComponentItem::create)
+    public static final ItemEntry<ComponentItem> ESCHATON_PROCESSOR_MAINFRAME = REGISTRATE
+            .item("eschaton_processor_mainframe", ComponentItem::create)
             .lang("Eschaton Processor Mainframe")
             .properties(p -> p.stacksTo(64))
             .onRegister(attachRenderer(() -> HaloItemRenderer.create(6, 0xFFFFFFFF,
@@ -1050,7 +1106,8 @@ public class CosmicItems {
 
     // Demon/Soul Related Items
 
-    public static final ItemEntry<ComponentItem> WICKED_ESSENCE = REGISTRATE.item("wicked_essence", ComponentItem::create)
+    public static final ItemEntry<ComponentItem> WICKED_ESSENCE = REGISTRATE
+            .item("wicked_essence", ComponentItem::create)
             .lang("Wicked Essence")
             .properties(p -> p.stacksTo(64))
             .onRegister(attach(new TooltipBehavior(lines -> {
@@ -1059,7 +1116,8 @@ public class CosmicItems {
             })))
             .register();
 
-    public static final ItemEntry<ComponentItem> ABERRANT_ESSENCE = REGISTRATE.item("aberrant_essence", ComponentItem::create)
+    public static final ItemEntry<ComponentItem> ABERRANT_ESSENCE = REGISTRATE
+            .item("aberrant_essence", ComponentItem::create)
             .lang("§6Aberrant Essence")
             .properties(p -> p.stacksTo(64))
             .onRegister(attach(new TooltipBehavior(lines -> {
@@ -1076,14 +1134,16 @@ public class CosmicItems {
             .lang("Hardened Resin")
             .properties(p -> p.stacksTo(64))
             .register();
-    public static ItemEntry<ComponentItem> DEBUG_STRUCTURE_WRITER = REGISTRATE.item("debug_structure_writer", ComponentItem::create)
+    public static ItemEntry<ComponentItem> DEBUG_STRUCTURE_WRITER = REGISTRATE
+            .item("debug_structure_writer", ComponentItem::create)
             .lang("Debug Structure Writer")
             .properties(p -> p.stacksTo(1))
             .onRegister(attach(StructureWriteBehavior.INSTANCE))
             .register();
 
     // Space Suite
-    public static ItemEntry<SpaceArmorComponentItem> SPACE_NANO_CHESTPLATE = REGISTRATE.item("space_nanomuscle_chestplate",
+    public static ItemEntry<SpaceArmorComponentItem> SPACE_NANO_CHESTPLATE = REGISTRATE
+            .item("space_nanomuscle_chestplate",
                     (p) -> new SpaceArmorComponentItem(GTArmorMaterials.ARMOR, ArmorItem.Type.CHESTPLATE, 5000, p)
                             .setArmorLogic(new NanoMuscleSpaceSuite(ArmorItem.Type.CHESTPLATE, 512,
                                     6_400_000L * (long) Math.max(1,
@@ -1094,7 +1154,8 @@ public class CosmicItems {
             .lang("NanoMuscle™ Space Suite Chestplate")
             .properties(p -> p.rarity(Rarity.RARE))
             .register();
-    public static ItemEntry<SpaceArmorComponentItem> ADVANCED_SPACE_NANO_CHESTPLATE = REGISTRATE.item("space_advanced_nanomuscle_chestplate",
+    public static ItemEntry<SpaceArmorComponentItem> ADVANCED_SPACE_NANO_CHESTPLATE = REGISTRATE
+            .item("space_advanced_nanomuscle_chestplate",
                     (p) -> new SpaceArmorComponentItem(GTArmorMaterials.ARMOR, ArmorItem.Type.CHESTPLATE, 10000, p)
                             .setArmorLogic(new AdvancedNanoMuscleSpaceSuite(512,
                                     12_800_000L * (long) Math.max(1,
@@ -1105,7 +1166,8 @@ public class CosmicItems {
             .lang("Advanced NanoMuscle™ Space Suite Chestplate")
             .properties(p -> p.rarity(Rarity.EPIC))
             .register();
-    public static ItemEntry<SpaceArmorComponentItem> SPACE_QUARK_CHESTPLATE = REGISTRATE.item("space_quarktech_chestplate",
+    public static ItemEntry<SpaceArmorComponentItem> SPACE_QUARK_CHESTPLATE = REGISTRATE
+            .item("space_quarktech_chestplate",
                     (p) -> new SpaceArmorComponentItem(GTArmorMaterials.ARMOR, ArmorItem.Type.CHESTPLATE, 20000, p)
                             .setArmorLogic(new QuarkTechSpaceSuite(ArmorItem.Type.CHESTPLATE, 8192,
                                     100_000_000L * (long) Math.max(1,
@@ -1116,7 +1178,8 @@ public class CosmicItems {
             .lang("QuarkTech™ Space Suite Chestplate")
             .properties(p -> p.rarity(Rarity.RARE))
             .register();
-    public static ItemEntry<SpaceArmorComponentItem> ADVANCED_SPACE_QUARK_CHESTPLATE = REGISTRATE.item("space_advanced_quarktech_chestplate",
+    public static ItemEntry<SpaceArmorComponentItem> ADVANCED_SPACE_QUARK_CHESTPLATE = REGISTRATE
+            .item("space_advanced_quarktech_chestplate",
                     (p) -> new SpaceArmorComponentItem(GTArmorMaterials.ARMOR, ArmorItem.Type.CHESTPLATE, 50000, p)
                             .setArmorLogic(new AdvancedQuarkTechSpaceSuite(8192,
                                     1_000_000_000L * (long) Math.max(1,
@@ -1142,7 +1205,8 @@ public class CosmicItems {
             .tag(CustomTags.PPE_ARMOR)
             .register();
 
-    public static ItemEntry<SpaceArmorComponentItem> SANGUINE_WARPTECH_CHESTPLATE = REGISTRATE.item("sanguine_warptech_chestplate",
+    public static ItemEntry<SpaceArmorComponentItem> SANGUINE_WARPTECH_CHESTPLATE = REGISTRATE
+            .item("sanguine_warptech_chestplate",
                     (p) -> new SpaceArmorComponentItem(GTArmorMaterials.ARMOR, ArmorItem.Type.CHESTPLATE, 100000, p)
                             .setArmorLogic(new ChestSanguineWarptechSuite(8192,
                                     10_000_000_000L * (long) Math.max(1,
@@ -1153,7 +1217,8 @@ public class CosmicItems {
             .lang("Sanguine WarpTech Gravplate")
             .properties(p -> p.rarity(Rarity.EPIC))
             .register();
-    public static ItemEntry<ArmorComponentItem> SANGUINE_WARPTECH_LEGGINGS = REGISTRATE.item("sanguine_warptech_leggings",
+    public static ItemEntry<ArmorComponentItem> SANGUINE_WARPTECH_LEGGINGS = REGISTRATE
+            .item("sanguine_warptech_leggings",
                     (p) -> new ArmorComponentItem(GTArmorMaterials.ARMOR, ArmorItem.Type.LEGGINGS, p)
                             .setArmorLogic(new SanguineWarptechSuite(ArmorItem.Type.LEGGINGS,
                                     8192,
@@ -1179,7 +1244,8 @@ public class CosmicItems {
 
     // OMNIA CIRCUITS
 
-    public static final ItemEntry<ComponentItem> OMNIA_CIRCUIT_LV = REGISTRATE.item("omnia_circuit_lv", ComponentItem::create)
+    public static final ItemEntry<ComponentItem> OMNIA_CIRCUIT_LV = REGISTRATE
+            .item("omnia_circuit_lv", ComponentItem::create)
             .lang("LV Omnia Circuit")
             .properties(p -> p.stacksTo(64))
             .tag(CustomTags.LV_CIRCUITS)
@@ -1187,7 +1253,8 @@ public class CosmicItems {
                 tooltips.add(Component.translatable("cosmiccore.omnia_circuit.lv"));
             })))
             .register();
-    public static final ItemEntry<ComponentItem> OMNIA_CIRCUIT_MV = REGISTRATE.item("omnia_circuit_mv", ComponentItem::create)
+    public static final ItemEntry<ComponentItem> OMNIA_CIRCUIT_MV = REGISTRATE
+            .item("omnia_circuit_mv", ComponentItem::create)
             .lang("MV Omnia Circuit")
             .properties(p -> p.stacksTo(64))
             .tag(CustomTags.MV_CIRCUITS)
@@ -1195,7 +1262,8 @@ public class CosmicItems {
                 tooltips.add(Component.translatable("cosmiccore.omnia_circuit.mv"));
             })))
             .register();
-    public static final ItemEntry<ComponentItem> OMNIA_CIRCUIT_HV = REGISTRATE.item("omnia_circuit_hv", ComponentItem::create)
+    public static final ItemEntry<ComponentItem> OMNIA_CIRCUIT_HV = REGISTRATE
+            .item("omnia_circuit_hv", ComponentItem::create)
             .lang("HV Omnia Circuit")
             .properties(p -> p.stacksTo(64))
             .tag(CustomTags.HV_CIRCUITS)
@@ -1203,7 +1271,8 @@ public class CosmicItems {
                 tooltips.add(Component.translatable("cosmiccore.omnia_circuit.hv"));
             })))
             .register();
-    public static final ItemEntry<ComponentItem> OMNIA_CIRCUIT_EV = REGISTRATE.item("omnia_circuit_ev", ComponentItem::create)
+    public static final ItemEntry<ComponentItem> OMNIA_CIRCUIT_EV = REGISTRATE
+            .item("omnia_circuit_ev", ComponentItem::create)
             .lang("EV Omnia Circuit")
             .properties(p -> p.stacksTo(64))
             .tag(CustomTags.EV_CIRCUITS)
@@ -1211,7 +1280,8 @@ public class CosmicItems {
                 tooltips.add(Component.translatable("cosmiccore.omnia_circuit.ev"));
             })))
             .register();
-    public static final ItemEntry<ComponentItem> OMNIA_CIRCUIT_IV = REGISTRATE.item("omnia_circuit_iv", ComponentItem::create)
+    public static final ItemEntry<ComponentItem> OMNIA_CIRCUIT_IV = REGISTRATE
+            .item("omnia_circuit_iv", ComponentItem::create)
             .lang("IV Omnia Circuit")
             .properties(p -> p.stacksTo(64))
             .tag(CustomTags.IV_CIRCUITS)
@@ -1219,7 +1289,8 @@ public class CosmicItems {
                 tooltips.add(Component.translatable("cosmiccore.omnia_circuit.iv"));
             })))
             .register();
-    public static final ItemEntry<ComponentItem> OMNIA_CIRCUIT_LUV = REGISTRATE.item("omnia_circuit_luv", ComponentItem::create)
+    public static final ItemEntry<ComponentItem> OMNIA_CIRCUIT_LUV = REGISTRATE
+            .item("omnia_circuit_luv", ComponentItem::create)
             .lang("LuV Omnia Circuit")
             .properties(p -> p.stacksTo(64))
             .tag(CustomTags.LuV_CIRCUITS)
@@ -1227,7 +1298,8 @@ public class CosmicItems {
                 tooltips.add(Component.translatable("cosmiccore.omnia_circuit.luv"));
             })))
             .register();
-    public static final ItemEntry<ComponentItem> OMNIA_CIRCUIT_ZPM = REGISTRATE.item("omnia_circuit_zpm", ComponentItem::create)
+    public static final ItemEntry<ComponentItem> OMNIA_CIRCUIT_ZPM = REGISTRATE
+            .item("omnia_circuit_zpm", ComponentItem::create)
             .lang("ZPM Omnia Circuit")
             .properties(p -> p.stacksTo(64))
             .tag(CustomTags.ZPM_CIRCUITS)
@@ -1235,7 +1307,8 @@ public class CosmicItems {
                 tooltips.add(Component.translatable("cosmiccore.omnia_circuit.zpm"));
             })))
             .register();
-    public static final ItemEntry<ComponentItem> OMNIA_CIRCUIT_UV = REGISTRATE.item("omnia_circuit_uv", ComponentItem::create)
+    public static final ItemEntry<ComponentItem> OMNIA_CIRCUIT_UV = REGISTRATE
+            .item("omnia_circuit_uv", ComponentItem::create)
             .lang("UV Omnia Circuit")
             .properties(p -> p.stacksTo(64))
             .tag(CustomTags.UV_CIRCUITS)
@@ -1243,7 +1316,8 @@ public class CosmicItems {
                 tooltips.add(Component.translatable("cosmiccore.omnia_circuit.uv"));
             })))
             .register();
-    public static final ItemEntry<ComponentItem> OMNIA_CIRCUIT_UHV = REGISTRATE.item("omnia_circuit_uhv", ComponentItem::create)
+    public static final ItemEntry<ComponentItem> OMNIA_CIRCUIT_UHV = REGISTRATE
+            .item("omnia_circuit_uhv", ComponentItem::create)
             .lang("UHV Omnia Circuit")
             .tag(CustomTags.UHV_CIRCUITS)
             .properties(p -> p.stacksTo(64))
@@ -1251,7 +1325,8 @@ public class CosmicItems {
                 tooltips.add(Component.translatable("cosmiccore.omnia_circuit.uhv"));
             })))
             .register();
-    public static final ItemEntry<ComponentItem> OMNIA_CIRCUIT_UEV = REGISTRATE.item("omnia_circuit_uev", ComponentItem::create)
+    public static final ItemEntry<ComponentItem> OMNIA_CIRCUIT_UEV = REGISTRATE
+            .item("omnia_circuit_uev", ComponentItem::create)
             .lang("UEV Omnia Circuit")
             .tag(CustomTags.UEV_CIRCUITS)
             .properties(p -> p.stacksTo(64))
@@ -1259,7 +1334,8 @@ public class CosmicItems {
                 tooltips.add(Component.translatable("cosmiccore.omnia_circuit.uev"));
             })))
             .register();
-    public static final ItemEntry<ComponentItem> OMNIA_CIRCUIT_UIV = REGISTRATE.item("omnia_circuit_uiv", ComponentItem::create)
+    public static final ItemEntry<ComponentItem> OMNIA_CIRCUIT_UIV = REGISTRATE
+            .item("omnia_circuit_uiv", ComponentItem::create)
             .lang("UIV Omnia Circuit")
             .tag(CustomTags.UIV_CIRCUITS)
             .properties(p -> p.stacksTo(64))
@@ -1267,7 +1343,8 @@ public class CosmicItems {
                 tooltips.add(Component.translatable("cosmiccore.omnia_circuit.uiv"));
             })))
             .register();
-    public static final ItemEntry<ComponentItem> OMNIA_CIRCUIT_UXV = REGISTRATE.item("omnia_circuit_uxv", ComponentItem::create)
+    public static final ItemEntry<ComponentItem> OMNIA_CIRCUIT_UXV = REGISTRATE
+            .item("omnia_circuit_uxv", ComponentItem::create)
             .lang("UXV Omnia Circuit")
             .tag(CustomTags.UXV_CIRCUITS)
             .properties(p -> p.stacksTo(64))
@@ -1275,7 +1352,8 @@ public class CosmicItems {
                 tooltips.add(Component.translatable("cosmiccore.omnia_circuit.uxv"));
             })))
             .register();
-    public static final ItemEntry<ComponentItem> OMNIA_CIRCUIT_OPV = REGISTRATE.item("omnia_circuit_opv", ComponentItem::create)
+    public static final ItemEntry<ComponentItem> OMNIA_CIRCUIT_OPV = REGISTRATE
+            .item("omnia_circuit_opv", ComponentItem::create)
             .lang("OPV Omnia Circuit")
             .tag(CustomTags.OpV_CIRCUITS)
             .properties(p -> p.stacksTo(64))
@@ -1283,7 +1361,8 @@ public class CosmicItems {
                 tooltips.add(Component.translatable("cosmiccore.omnia_circuit.opv"));
             })))
             .register();
-    public static final ItemEntry<ComponentItem> RUNE_SLATE_ARKLYS = REGISTRATE.item("rune_slate_arklys", ComponentItem::create)
+    public static final ItemEntry<ComponentItem> RUNE_SLATE_ARKLYS = REGISTRATE
+            .item("rune_slate_arklys", ComponentItem::create)
             .lang("Rune Slate [Arklys]")
             .properties(p -> p.stacksTo(64))
             .onRegister(attach(new TooltipBehavior(tooltips -> {
@@ -1292,7 +1371,8 @@ public class CosmicItems {
                 tooltips.add(Component.translatable("cosmiccore.rune_vague"));
             })))
             .register();
-    public static final ItemEntry<ComponentItem> RUNE_SLATE_TYLOMIR = REGISTRATE.item("rune_slate_tylomir", ComponentItem::create)
+    public static final ItemEntry<ComponentItem> RUNE_SLATE_TYLOMIR = REGISTRATE
+            .item("rune_slate_tylomir", ComponentItem::create)
             .lang("Rune Slate [Tylomir]")
             .properties(p -> p.stacksTo(64))
             .onRegister(attach(new TooltipBehavior(tooltips -> {
@@ -1301,7 +1381,8 @@ public class CosmicItems {
                 tooltips.add(Component.translatable("cosmiccore.rune_vague"));
             })))
             .register();
-    public static final ItemEntry<ComponentItem> RUNE_SLATE_KHORUTH = REGISTRATE.item("rune_slate_khoruth", ComponentItem::create)
+    public static final ItemEntry<ComponentItem> RUNE_SLATE_KHORUTH = REGISTRATE
+            .item("rune_slate_khoruth", ComponentItem::create)
             .lang("Rune Slate [Khoruth]")
             .properties(p -> p.stacksTo(64))
             .onRegister(attach(new TooltipBehavior(tooltips -> {
@@ -1310,7 +1391,8 @@ public class CosmicItems {
                 tooltips.add(Component.translatable("cosmiccore.rune_vague"));
             })))
             .register();
-    public static final ItemEntry<ComponentItem> RUNE_SLATE_ZELOTHAR = REGISTRATE.item("rune_slate_zelothar", ComponentItem::create)
+    public static final ItemEntry<ComponentItem> RUNE_SLATE_ZELOTHAR = REGISTRATE
+            .item("rune_slate_zelothar", ComponentItem::create)
             .lang("Rune Slate [Zelothar]")
             .properties(p -> p.stacksTo(64))
             .onRegister(attach(new TooltipBehavior(tooltips -> {
@@ -1319,7 +1401,8 @@ public class CosmicItems {
                 tooltips.add(Component.translatable("cosmiccore.rune_vague"));
             })))
             .register();
-    public static final ItemEntry<ComponentItem> RUNE_SLATE_TENURA = REGISTRATE.item("rune_slate_tenura", ComponentItem::create)
+    public static final ItemEntry<ComponentItem> RUNE_SLATE_TENURA = REGISTRATE
+            .item("rune_slate_tenura", ComponentItem::create)
             .lang("Rune Slate [Tenura]")
             .properties(p -> p.stacksTo(64))
             .onRegister(attach(new TooltipBehavior(tooltips -> {
@@ -1329,7 +1412,8 @@ public class CosmicItems {
             })))
             .register();
 
-    public static final ItemEntry<ComponentItem> RUNE_SLATE_VALDRIS = REGISTRATE.item("rune_slate_valdris", ComponentItem::create)
+    public static final ItemEntry<ComponentItem> RUNE_SLATE_VALDRIS = REGISTRATE
+            .item("rune_slate_valdris", ComponentItem::create)
             .lang("Rune Slate [Valdris]")
             .properties(p -> p.stacksTo(64))
             .onRegister(attach(new TooltipBehavior(tooltips -> {
@@ -1339,7 +1423,8 @@ public class CosmicItems {
             })))
             .register();
 
-    public static final ItemEntry<ComponentItem> RUNE_CONJUNCTION_VALKRUTH = REGISTRATE.item("rune_conjunction_valkruth", ComponentItem::create)
+    public static final ItemEntry<ComponentItem> RUNE_CONJUNCTION_VALKRUTH = REGISTRATE
+            .item("rune_conjunction_valkruth", ComponentItem::create)
             .lang("Rune Conjunction [Valkruth]")
             .properties(p -> p.stacksTo(64))
             .onRegister(attach(new TooltipBehavior(tooltips -> {
@@ -1351,7 +1436,8 @@ public class CosmicItems {
             })))
             .register();
 
-    public static final ItemEntry<ComponentItem> RUNE_CONJUNCTION_KHOLYS = REGISTRATE.item("rune_conjunction_kholys", ComponentItem::create)
+    public static final ItemEntry<ComponentItem> RUNE_CONJUNCTION_KHOLYS = REGISTRATE
+            .item("rune_conjunction_kholys", ComponentItem::create)
             .lang("Rune Conjunction [Kholys]")
             .properties(p -> p.stacksTo(64))
             .onRegister(attach(new TooltipBehavior(tooltips -> {
@@ -1363,7 +1449,8 @@ public class CosmicItems {
             })))
             .register();
 
-    public static final ItemEntry<ComponentItem> RUNE_CONJUNCTION_ARKLYTHAR = REGISTRATE.item("rune_conjunction_arklythar", ComponentItem::create)
+    public static final ItemEntry<ComponentItem> RUNE_CONJUNCTION_ARKLYTHAR = REGISTRATE
+            .item("rune_conjunction_arklythar", ComponentItem::create)
             .lang("Rune Conjunction [Arklythar]")
             .properties(p -> p.stacksTo(64))
             .onRegister(attach(new TooltipBehavior(tooltips -> {
@@ -1375,7 +1462,8 @@ public class CosmicItems {
             })))
             .register();
     // Gravity Normalizer Item Variation
-    public static final ItemEntry<ComponentItem> PORTABLE_GRAVITY_CORE = REGISTRATE.item("portable_gravity_core", ComponentItem::create)
+    public static final ItemEntry<ComponentItem> PORTABLE_GRAVITY_CORE = REGISTRATE
+            .item("portable_gravity_core", ComponentItem::create)
             .lang("§6Portable Gravity Core")
             .properties(p -> p.stacksTo(64))
             .onRegister(attach(new TooltipBehavior(tooltips -> {
@@ -1383,7 +1471,8 @@ public class CosmicItems {
             })))
             .register();
     // infinite spraycan
-    public static final ItemEntry<ComponentItem> INFINITE_SPRAY_CAN = REGISTRATE.item("infinite_spray_can", ComponentItem::create)
+    public static final ItemEntry<ComponentItem> INFINITE_SPRAY_CAN = REGISTRATE
+            .item("infinite_spray_can", ComponentItem::create)
             .lang("§5 Infinite_spray_can")
             .setData(ProviderType.ITEM_MODEL, NonNullBiConsumer.noop())
             .properties(p -> p.stacksTo(1))
@@ -1392,7 +1481,8 @@ public class CosmicItems {
                     (itemStack) -> (float) itemStack.getOrCreateTag().getInt(InfiniteSprayCanBehavior.ColorTag)))
             .register();
 
-    public static ItemEntry<ComponentItem> NEUTRONITE_FLUID_CELL = GTRegistration.REGISTRATE.item("indestructible_fluid_cell", ComponentItem::create)
+    public static ItemEntry<ComponentItem> NEUTRONITE_FLUID_CELL = GTRegistration.REGISTRATE
+            .item("indestructible_fluid_cell", ComponentItem::create)
             .lang("Indestructible %s Fluid Cell")
             .setData(ProviderType.ITEM_MODEL, NonNullBiConsumer.noop())
             .color(() -> GTItems::cellColor)
@@ -1485,11 +1575,13 @@ public class CosmicItems {
             .properties(p -> p.stacksTo(64))
             .register();
     // BOULE AND WAFER
-    public static final ItemEntry<Item> LIVINGROCK_ALUMINATE_BOULE = REGISTRATE.item("livingrock_aluminate_boule", Item::new)
+    public static final ItemEntry<Item> LIVINGROCK_ALUMINATE_BOULE = REGISTRATE
+            .item("livingrock_aluminate_boule", Item::new)
             .lang("Livingrock Aluminate Boule")
             .properties(p -> p.stacksTo(64))
             .register();
-    public static final ItemEntry<Item> LIVINGROCK_ALUMINATE_WAFER = REGISTRATE.item("livirock_aluminite_wafer", Item::new)
+    public static final ItemEntry<Item> LIVINGROCK_ALUMINATE_WAFER = REGISTRATE
+            .item("livirock_aluminite_wafer", Item::new)
             .lang("Livingrock Aluminate Wafer")
             .properties(p -> p.stacksTo(64))
             .register();
@@ -1518,7 +1610,8 @@ public class CosmicItems {
             .properties(p -> p.stacksTo(64).durability(1024))
             .register();
 
-    public static final ItemEntry<Item> ARMORED_HAULER_PROBE_GRADE_1 = REGISTRATE.item("armored_freight_beetle_grade_1", Item::new)
+    public static final ItemEntry<Item> ARMORED_HAULER_PROBE_GRADE_1 = REGISTRATE
+            .item("armored_freight_beetle_grade_1", Item::new)
             .lang("Armored Freight Beetle Mk.1")
             .properties(p -> p.stacksTo(64).durability(1024))
             .register();
@@ -1533,7 +1626,8 @@ public class CosmicItems {
             .properties(p -> p.stacksTo(64).durability(1024))
             .register();
 
-    public static final ItemEntry<Item> PULVERIZING_BEETLE_GRADE_1 = REGISTRATE.item("pulverizing_beetle_grade_1", Item::new)
+    public static final ItemEntry<Item> PULVERIZING_BEETLE_GRADE_1 = REGISTRATE
+            .item("pulverizing_beetle_grade_1", Item::new)
             .lang("Pulverizing Beetle Mk.1")
             .properties(p -> p.stacksTo(64).durability(1024))
             .register();
@@ -1548,7 +1642,8 @@ public class CosmicItems {
             .properties(p -> p.stacksTo(64).durability(1024))
             .register();
 
-    public static final ItemEntry<Item> ARMORED_HAULER_PROBE_GRADE_2 = REGISTRATE.item("armored_freight_beetle_grade_2", Item::new)
+    public static final ItemEntry<Item> ARMORED_HAULER_PROBE_GRADE_2 = REGISTRATE
+            .item("armored_freight_beetle_grade_2", Item::new)
             .lang("Armored Freight Beetle Mk.2")
             .properties(p -> p.stacksTo(64).durability(1024))
             .register();
@@ -1563,7 +1658,8 @@ public class CosmicItems {
             .properties(p -> p.stacksTo(64).durability(1024))
             .register();
 
-    public static final ItemEntry<Item> PULVERIZING_BEETLE_GRADE_2 = REGISTRATE.item("pulverizing_beetle_grade_2", Item::new)
+    public static final ItemEntry<Item> PULVERIZING_BEETLE_GRADE_2 = REGISTRATE
+            .item("pulverizing_beetle_grade_2", Item::new)
             .lang("Pulverizing Beetle Mk.2")
             .properties(p -> p.stacksTo(64).durability(1024))
             .register();
@@ -1579,7 +1675,8 @@ public class CosmicItems {
             .properties(p -> p.stacksTo(64).durability(1024))
             .register();
 
-    public static final ItemEntry<Item> ARMORED_HAULER_PROBE_GRADE_3 = REGISTRATE.item("armored_freight_beetle_grade_3", Item::new)
+    public static final ItemEntry<Item> ARMORED_HAULER_PROBE_GRADE_3 = REGISTRATE
+            .item("armored_freight_beetle_grade_3", Item::new)
             .lang("Armored Freight Beetle Mk.3")
             .properties(p -> p.stacksTo(64).durability(1024))
             .register();
@@ -1594,7 +1691,8 @@ public class CosmicItems {
             .properties(p -> p.stacksTo(64).durability(1024))
             .register();
 
-    public static final ItemEntry<Item> PULVERIZING_BEETLE_GRADE_3 = REGISTRATE.item("pulverizing_beetle_grade_3", Item::new)
+    public static final ItemEntry<Item> PULVERIZING_BEETLE_GRADE_3 = REGISTRATE
+            .item("pulverizing_beetle_grade_3", Item::new)
             .lang("Pulverizing Beetle Mk.3")
             .properties(p -> p.stacksTo(64).durability(1024))
             .register();
@@ -1611,7 +1709,8 @@ public class CosmicItems {
             .properties(p -> p.stacksTo(64).durability(1024))
             .register();
 
-    public static final ItemEntry<Item> ARMORED_HAULER_PROBE_GRADE_4 = REGISTRATE.item("armored_freight_beetle_grade_4", Item::new)
+    public static final ItemEntry<Item> ARMORED_HAULER_PROBE_GRADE_4 = REGISTRATE
+            .item("armored_freight_beetle_grade_4", Item::new)
             .lang("Armored Freight Beetle Mk.4")
             .properties(p -> p.stacksTo(64).durability(1024))
             .register();
@@ -1626,7 +1725,8 @@ public class CosmicItems {
             .properties(p -> p.stacksTo(64).durability(1024))
             .register();
 
-    public static final ItemEntry<Item> PULVERIZING_BEETLE_GRADE_4 = REGISTRATE.item("pulverizing_beetle_grade_4", Item::new)
+    public static final ItemEntry<Item> PULVERIZING_BEETLE_GRADE_4 = REGISTRATE
+            .item("pulverizing_beetle_grade_4", Item::new)
             .lang("Pulverizing Beetle Mk.4")
             .properties(p -> p.stacksTo(64).durability(1024))
             .register();
@@ -1641,7 +1741,8 @@ public class CosmicItems {
             .properties(p -> p.stacksTo(64).durability(1024))
             .register();
 
-    public static final ItemEntry<Item> ARMORED_HAULER_PROBE_GRADE_5 = REGISTRATE.item("armored_freight_beetle_grade_5", Item::new)
+    public static final ItemEntry<Item> ARMORED_HAULER_PROBE_GRADE_5 = REGISTRATE
+            .item("armored_freight_beetle_grade_5", Item::new)
             .lang("Armored Freight Beetle Mk.5")
             .properties(p -> p.stacksTo(64).durability(1024))
             .register();
@@ -1656,7 +1757,8 @@ public class CosmicItems {
             .properties(p -> p.stacksTo(64).durability(1024))
             .register();
 
-    public static final ItemEntry<Item> PULVERIZING_BEETLE_GRADE_5 = REGISTRATE.item("pulverizing_beetle_grade_5", Item::new)
+    public static final ItemEntry<Item> PULVERIZING_BEETLE_GRADE_5 = REGISTRATE
+            .item("pulverizing_beetle_grade_5", Item::new)
             .lang("Pulverizing Beetle Mk.5")
             .properties(p -> p.stacksTo(64).durability(1024))
             .register();
@@ -1676,7 +1778,8 @@ public class CosmicItems {
             .onRegister(attach(new LinkedTerminalBehavior()))
             .register();
 
-    public static final ItemEntry<AsteroidItem> CARBON_ASTEROID = REGISTRATE.item("carbon_asteroid_base", AsteroidItem::new)
+    public static final ItemEntry<AsteroidItem> CARBON_ASTEROID = REGISTRATE
+            .item("carbon_asteroid_base", AsteroidItem::new)
             .lang("Carbonic Asteroid")
             .properties(p -> p.stacksTo(1))
             .onRegister(attachRenderer(() -> RadianceItemRenderer.INSTANCE))
@@ -1687,7 +1790,8 @@ public class CosmicItems {
             .onRegister(attachRenderer(() -> RadianceItemRenderer.INSTANCE))
             .register();
 
-    public static final ItemEntry<AsteroidItem> RARE_METAL_ASTEROID = REGISTRATE.item("rare_metals_asteroid", AsteroidItem::new)
+    public static final ItemEntry<AsteroidItem> RARE_METAL_ASTEROID = REGISTRATE
+            .item("rare_metals_asteroid", AsteroidItem::new)
             .lang("Exotic Metals Asteroid")
             .properties(p -> p.stacksTo(1))
             .onRegister(attachRenderer(() -> RadianceItemRenderer.INSTANCE))
@@ -1699,7 +1803,8 @@ public class CosmicItems {
             .onRegister(attachRenderer(() -> RadianceItemRenderer.INSTANCE))
             .register();
 
-    public static final ItemEntry<AsteroidItem> BRIMSTONE_ASTEROID = REGISTRATE.item("brimstone_asteroid", AsteroidItem::new)
+    public static final ItemEntry<AsteroidItem> BRIMSTONE_ASTEROID = REGISTRATE
+            .item("brimstone_asteroid", AsteroidItem::new)
             .lang("Brimstone Asteroid")
             .properties(p -> p.stacksTo(1))
             .onRegister(attachRenderer(() -> RadianceItemRenderer.INSTANCE))
@@ -1735,58 +1840,69 @@ public class CosmicItems {
             .onRegister(attachRenderer(() -> RadianceItemRenderer.INSTANCE))
             .register();
 
-    public static final ItemEntry<AsteroidItem> SANGUINE_ASTEROID = REGISTRATE.item("sanguine_asteroid", AsteroidItem::new)
+    public static final ItemEntry<AsteroidItem> SANGUINE_ASTEROID = REGISTRATE
+            .item("sanguine_asteroid", AsteroidItem::new)
             .lang("Sanguine Asteroid")
             .properties(p -> p.stacksTo(1))
             .onRegister(attachRenderer(() -> RadianceItemRenderer.INSTANCE))
             .register();
 
-    public static final ItemEntry<AsteroidItem> WASTELAND_ASTEROID = REGISTRATE.item("wasteland_asteroid", AsteroidItem::new)
+    public static final ItemEntry<AsteroidItem> WASTELAND_ASTEROID = REGISTRATE
+            .item("wasteland_asteroid", AsteroidItem::new)
             .lang("Wasteland Asteroid")
             .properties(p -> p.stacksTo(1))
             .onRegister(attachRenderer(() -> RadianceItemRenderer.INSTANCE))
             .register();
 
-    public static final ItemEntry<Item> TUNGSTENSTEEL_NANOLATTICE_SPOOL = REGISTRATE.item("tungstensteel_nanolattice_spool", Item::new)
+    public static final ItemEntry<Item> TUNGSTENSTEEL_NANOLATTICE_SPOOL = REGISTRATE
+            .item("tungstensteel_nanolattice_spool", Item::new)
             .lang("Tungstensteel Nanolattice Spool")
             .properties(p -> p.stacksTo(16))
             .register();
 
-    public static final ItemEntry<Item> TRINAVINE_NANOLATTICE_SPOOL = REGISTRATE.item("trinavine_nanolattice_spool", Item::new)
+    public static final ItemEntry<Item> TRINAVINE_NANOLATTICE_SPOOL = REGISTRATE
+            .item("trinavine_nanolattice_spool", Item::new)
             .lang("Trinavine Nanolattice Spool")
             .properties(p -> p.stacksTo(16))
             .register();
     // What we'd write our NBT ON and Read in LARVA
-    public static final ItemEntry<AsteroidTargetingChipItem> TARGETING_CHIP = REGISTRATE.item("asteroid_targeting_chip", props -> new AsteroidTargetingChipItem(props.stacksTo(1)))
+    public static final ItemEntry<AsteroidTargetingChipItem> TARGETING_CHIP = REGISTRATE
+            .item("asteroid_targeting_chip", props -> new AsteroidTargetingChipItem(props.stacksTo(1)))
             .lang("Asteroid Targeting Chip")
             .properties(p -> p.stacksTo(1))
             .register();
-    public static final ItemEntry<Item> FLESH_PACKED_PLUTONIUM_FUEL = REGISTRATE.item("flesh_packed_plutonium_fuel", Item::new)
+    public static final ItemEntry<Item> FLESH_PACKED_PLUTONIUM_FUEL = REGISTRATE
+            .item("flesh_packed_plutonium_fuel", Item::new)
             .lang("Flesh Packed Plutonium Fuel")
             .properties(p -> p.stacksTo(1))
             .register();
 
-    public static final ItemEntry<Item> FLESH_PACKED_URANIUM_FUEL = REGISTRATE.item("flesh_packed_uranium_fuel", Item::new)
+    public static final ItemEntry<Item> FLESH_PACKED_URANIUM_FUEL = REGISTRATE
+            .item("flesh_packed_uranium_fuel", Item::new)
             .lang("Flesh Packed Uranium Fuel")
             .properties(p -> p.stacksTo(1))
             .register();
 
-    public static final ItemEntry<Item> FLESH_PACKED_NEPTUNIUM_FUEL = REGISTRATE.item("flesh_packed_neptunium_fuel", Item::new)
+    public static final ItemEntry<Item> FLESH_PACKED_NEPTUNIUM_FUEL = REGISTRATE
+            .item("flesh_packed_neptunium_fuel", Item::new)
             .lang("Flesh Packed Neptunium Fuel")
             .properties(p -> p.stacksTo(1))
             .register();
 
-    public static final ItemEntry<Item> SPENT_FLESH_PACKED_PLUTONIUM_FUEL = REGISTRATE.item("spent_flesh_packed_plutonium_fuel", Item::new)
+    public static final ItemEntry<Item> SPENT_FLESH_PACKED_PLUTONIUM_FUEL = REGISTRATE
+            .item("spent_flesh_packed_plutonium_fuel", Item::new)
             .lang("Spent Flesh Packed Plutonium Fuel")
             .properties(p -> p.stacksTo(1))
             .register();
 
-    public static final ItemEntry<Item> SPENT_FLESH_PACKED_URANIUM_FUEL = REGISTRATE.item("spent_flesh_packed_uranium_fuel", Item::new)
+    public static final ItemEntry<Item> SPENT_FLESH_PACKED_URANIUM_FUEL = REGISTRATE
+            .item("spent_flesh_packed_uranium_fuel", Item::new)
             .lang("Spent Flesh Packed Uranium Fuel")
             .properties(p -> p.stacksTo(1))
             .register();
 
-    public static final ItemEntry<Item> SPENT_FLESH_PACKED_NEPTUNIUM_FUEL = REGISTRATE.item("spent_flesh_packed_neptunium_fuel", Item::new)
+    public static final ItemEntry<Item> SPENT_FLESH_PACKED_NEPTUNIUM_FUEL = REGISTRATE
+            .item("spent_flesh_packed_neptunium_fuel", Item::new)
             .lang("Spent Flesh Packed Neptunium Fuel")
             .properties(p -> p.stacksTo(1))
             .register();

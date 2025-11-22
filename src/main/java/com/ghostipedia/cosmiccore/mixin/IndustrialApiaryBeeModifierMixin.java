@@ -24,8 +24,8 @@ public abstract class IndustrialApiaryBeeModifierMixin implements IBeeModifier {
 
     @Inject(method = "recalculate",
             at = @At(value = "INVOKE_ASSIGN",
-                    target = "Lthedarkcolour/gendustry/item/GendustryUpgradeItem;getType()Lthedarkcolour/gendustry/item/IGendustryUpgradeType;",
-                    shift = At.Shift.AFTER))
+                     target = "Lthedarkcolour/gendustry/item/GendustryUpgradeItem;getType()Lthedarkcolour/gendustry/item/IGendustryUpgradeType;",
+                     shift = At.Shift.AFTER))
     private void cosmicCore$injectCCUpgradeTypes(IInventoryAdapter inventory, CallbackInfoReturnable<Integer> cir,
                                                  @Local IGendustryUpgradeType upgradeType) {
         if (upgradeType instanceof CosmicGendustryUpgradeType type) {

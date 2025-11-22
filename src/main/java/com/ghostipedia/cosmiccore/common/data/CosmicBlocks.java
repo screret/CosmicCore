@@ -4,6 +4,7 @@ import com.ghostipedia.cosmiccore.CosmicCore;
 import com.ghostipedia.cosmiccore.api.CosmicCoreAPI;
 import com.ghostipedia.cosmiccore.api.block.IMagnetType;
 import com.ghostipedia.cosmiccore.client.renderer.block.NebulaeCoilRenderer;
+import com.ghostipedia.cosmiccore.common.block.CosmicCoilBlock;
 import com.ghostipedia.cosmiccore.common.block.MagnetBlock;
 import com.ghostipedia.cosmiccore.common.blockentity.CosmicCoilBlockEntity;
 import com.ghostipedia.cosmiccore.ember.CosmicEmberEmitterBlock;
@@ -13,7 +14,6 @@ import com.gregtechceu.gtceu.GTCEu;
 import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.block.ActiveBlock;
 import com.gregtechceu.gtceu.api.block.ICoilType;
-import com.gregtechceu.gtceu.api.block.property.GTBlockStateProperties;
 import com.gregtechceu.gtceu.common.block.CoilBlock;
 import com.gregtechceu.gtceu.common.data.models.GTModels;
 import com.gregtechceu.gtceu.data.recipe.CustomTags;
@@ -22,16 +22,14 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
-import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 
 import com.rekindled.embers.RegistryManager;
-import com.teamresourceful.resourcefullib.common.registry.RegistryEntry;
 import com.tterrag.registrate.providers.DataGenContext;
 import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
 import com.tterrag.registrate.util.entry.BlockEntry;
@@ -39,6 +37,7 @@ import com.tterrag.registrate.util.nullness.NonNullBiConsumer;
 import com.tterrag.registrate.util.nullness.NonNullFunction;
 import com.tterrag.registrate.util.nullness.NonNullSupplier;
 import earth.terrarium.adastra.common.blocks.GlobeBlock;
+import earth.terrarium.adastra.common.items.rendered.RenderedBlockItem;
 import it.unimi.dsi.fastutil.ints.Int2ReferenceArrayMap;
 
 import java.util.Map;
@@ -89,9 +88,9 @@ public class CosmicBlocks {
                         .cubeAll(name + "_active", CosmicCore.id("block/casings/coils/causal_fabric"));
 
                 prov.getVariantBuilder(block)
-                        .partialState().with(GTBlockStateProperties.ACTIVE, false).modelForState().modelFile(inactive)
+                        .partialState().with(ACTIVE, false).modelForState().modelFile(inactive)
                         .addModel()
-                        .partialState().with(GTBlockStateProperties.ACTIVE, true).modelForState().modelFile(active)
+                        .partialState().with(ACTIVE, true).modelForState().modelFile(active)
                         .addModel();
             });
 

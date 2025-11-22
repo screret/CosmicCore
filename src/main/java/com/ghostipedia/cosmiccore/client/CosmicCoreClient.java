@@ -1,8 +1,8 @@
 package com.ghostipedia.cosmiccore.client;
 
 import com.ghostipedia.cosmiccore.CosmicCore;
-import com.ghostipedia.cosmiccore.common.data.bee.CosmicBeesSpecies;
 import com.ghostipedia.cosmiccore.client.renderer.machine.*;
+import com.ghostipedia.cosmiccore.common.data.bee.CosmicBeesSpecies;
 
 import com.gregtechceu.gtceu.client.renderer.machine.DynamicRenderManager;
 
