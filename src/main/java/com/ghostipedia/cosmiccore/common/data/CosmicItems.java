@@ -69,28 +69,21 @@ import static wayoftime.bloodmagic.common.item.BloodMagicItems.BLOOD_ORBS;
 
 public class CosmicItems {
 
-    public static final BloodOrbRegistryObject<BloodOrb> ORB_ASCENDANT;
-    public static final BloodOrbRegistryObject<BloodOrb> ORB_VOIDSENT;
-    public static final BloodOrbRegistryObject<BloodOrb> ORB_SOVEREIGN;
-
     public static final RegistryEntry<Item> SUN_GLOBE = GLOBES.register("sun_globe",
             () -> new RenderedBlockItem(CosmicBlocks.SUN_GLOBE.get(),
                     new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
     static {
         CosmicRegistration.REGISTRATE.creativeModeTab(() -> CosmicCreativeModeTabs.COSMIC_CORE);
-        ORB_ASCENDANT = BLOOD_ORBS.register("ascendantbloodorb", () -> {
-            return new BloodOrb(new ResourceLocation("bloodmagic", "ascendantbloodorb"), 6, 25000000, 1000);
-        });
-        ORB_VOIDSENT = BLOOD_ORBS.register("voidsentbloodorb", () -> {
-            return new BloodOrb(new ResourceLocation("bloodmagic", "voidsentbloodorb"), 7, 50000000, 1000);
-        });
-        ORB_SOVEREIGN = BLOOD_ORBS.register("sovereignbloodorb", () -> {
-            return new BloodOrb(new ResourceLocation("bloodmagic", "sovereignbloodorb"), 8, 100000000, 10000);
-        });
     }
 
-    public static final CosmicBloodOrbDeferredRegister COSMIC_BLOOD_ORBS = new CosmicBloodOrbDeferredRegister(
-            "cosmiccore");
+    // why are these registered to blood magic's registry?
+    public static final BloodOrbRegistryObject<BloodOrb> ORB_ASCENDANT = BLOOD_ORBS.register("ascendantbloodorb",
+            () -> new BloodOrb(new ResourceLocation("bloodmagic", "ascendantbloodorb"), 6, 25000000, 1000));
+    public static final BloodOrbRegistryObject<BloodOrb> ORB_VOIDSENT = BLOOD_ORBS.register("voidsentbloodorb",
+            () -> new BloodOrb(new ResourceLocation("bloodmagic", "voidsentbloodorb"), 7, 50000000, 1000));
+    public static final BloodOrbRegistryObject<BloodOrb> ORB_SOVEREIGN = BLOOD_ORBS.register("sovereignbloodorb",
+            () -> new BloodOrb(new ResourceLocation("bloodmagic", "sovereignbloodorb"), 8, 100000000, 10000));
+    
     // Modules
 
     public static final ItemEntry<SpiritShardItem> ETHERIC_SPIRIT_ITEM = REGISTRATE.item("etheric_spirit", p -> new SpiritShardItem(p, CosmicItems.ETHERIC_SPIRIT))
