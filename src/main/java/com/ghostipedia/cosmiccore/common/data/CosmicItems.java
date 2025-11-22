@@ -511,6 +511,18 @@ public class CosmicItems {
             .properties(p -> p.stacksTo(64))
             .register();
 
+    // additional botany items
+    public static final ItemEntry<Item> DULIA_LILY = REGISTRATE.item("dulia_lily", Item::new)
+            .lang("Dulia Lily")
+            .properties(p -> p.stacksTo(16))
+            .tag(CosmicItemTags.EXTRA_CROP_HOLDER_PLANTS)
+            .register();
+    public static final ItemEntry<Item> RAYMARCHING_DANDILIFEON = REGISTRATE.item("raymarching_dandilifeon", Item::new)
+            .lang("Raymarching Dandilifeon")
+            .properties(p -> p.stacksTo(16))
+            .tag(CosmicItemTags.EXTRA_CROP_HOLDER_PLANTS)
+            .register();
+
     // The Fuckin Spinny Boi
     public static final ItemEntry<Item> GYROSCOPE_UV = REGISTRATE.item("uv_gyroscope", Item::new)
             .lang("UV Gyroscope")

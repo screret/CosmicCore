@@ -75,7 +75,6 @@ public class CosmicCore {
         CosmicBlocks.init();
         CosmicBlockEntities.init();
         CosmicItems.init();
-        CosmicBotanyItemRegistration.init();
         CosmicRegistration.REGISTRATE.registerRegistrate();
         CosmicCoreDatagen.init();
         CosmicPredicates.init();

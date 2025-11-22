@@ -77,26 +77,16 @@ public class CropHolderPartMachines extends MultiblockPartMachine implements IMa
 
         @Override
         public boolean isItemValid(int slot, @NotNull ItemStack stack) {
-            var item = stack.getItem();
             if (stack.isEmpty()) {
                 return true;
             }
-            if (item instanceof ItemNameBlockItem plantBlock) {
-                var block = plantBlock.getBlock();
-                if (block instanceof IPlantable plantable) {
+            var item = stack.getItem();
+            if (item instanceof BlockItem blockItem) {
+                if (blockItem.getBlock() instanceof IPlantable) {
                     return true;
                 }
             }
-            if (item instanceof BlockItem plantBlock) {
-                var block = plantBlock.getBlock();
-                if (block instanceof IPlantable) {
-                    return true;
-                }
-            }
-            var flowers = Arrays.stream(CosmicBotanyItemRegistration.CosmicBotanyItem.values())
-                    .filter(i -> i.item.is(item)).toList();
-            return !flowers.isEmpty();
-
+            return stack.is(CosmicItemTags.EXTRA_CROP_HOLDER_PLANTS);
             // TODO; Come back for manual Recipe map Injection
         }
     }
