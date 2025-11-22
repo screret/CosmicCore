@@ -10,9 +10,11 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 
 import com.tterrag.registrate.util.nullness.NonNullConsumer;
+import dev.latvian.mods.kubejs.item.ItemHandlerUtils;
 import org.jetbrains.annotations.Nullable;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.type.capability.ICuriosItemHandler;
@@ -23,12 +25,23 @@ import java.util.Optional;
 
 public class CosmicUtils {
 
-    public static boolean hasTheOneRing(@Nullable Entity entity) {
-        return hasCurio(entity, "ring", CosmicItems.THE_ONE_RING.asItem());
-    }
-
     public static <T extends ComponentItem> NonNullConsumer<T> attachRenderer(ICustomRenderer customRenderer) {
         return !GTCEu.isClientSide() ? NonNullConsumer.noop() : (item) -> item.attachComponents(customRenderer);
+    }
+
+    public static boolean hasTheOneRing(@Nullable Entity entity) {
+        if (entity == null) {
+            return false;
+        }
+        return entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).map(handler -> {
+            for (int i = 0; i < handler.getSlots(); i++) {
+                ItemStack stack = handler.getStackInSlot(i);
+                if (stack.is(CosmicItems.THE_ONE_RING.get())) {
+                    return true;
+                }
+            }
+            return false;
+        }).orElseGet(() -> hasCurio(entity, "ring", CosmicItems.THE_ONE_RING.get()));
     }
 
     /**
@@ -45,17 +58,17 @@ public class CosmicUtils {
         }
 
         LazyOptional<ICuriosItemHandler> cap = CuriosApi.getCuriosInventory(living);
-        if (cap.isPresent()) {
-            ICuriosItemHandler curioHandler = cap.resolve().get();
-            Optional<ICurioStacksHandler> handler = curioHandler.getStacksHandler(curioSlot);
-            if (handler.isPresent()) {
-                IDynamicStackHandler stackHandler = handler.get().getStacks();
-                for (int i = 0; i < stackHandler.getSlots(); i++) {
-                    ItemStack stack = stackHandler.getStackInSlot(i);
-                    if (stack.is(item)) {
-                        return true;
-                    }
-                }
+        if (!cap.isPresent()) return false;
+
+        ICuriosItemHandler curioHandler = cap.resolve().get();
+        Optional<ICurioStacksHandler> handler = curioHandler.getStacksHandler(curioSlot);
+        if (handler.isEmpty()) return false;
+
+        IDynamicStackHandler stackHandler = handler.get().getStacks();
+        for (int i = 0; i < stackHandler.getSlots(); i++) {
+            ItemStack stack = stackHandler.getStackInSlot(i);
+            if (stack.is(item)) {
+                return true;
             }
         }
         return false;

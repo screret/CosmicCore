@@ -1,6 +1,6 @@
 package com.ghostipedia.cosmiccore.common.network.packet;
 
-import com.ghostipedia.cosmiccore.client.CosmicHudGuiOverlay;
+import com.ghostipedia.cosmiccore.client.gui.overlay.CosmicHudGuiOverlay;
 import com.ghostipedia.cosmiccore.common.network.CCoreNetwork;
 
 import net.minecraft.network.FriendlyByteBuf;

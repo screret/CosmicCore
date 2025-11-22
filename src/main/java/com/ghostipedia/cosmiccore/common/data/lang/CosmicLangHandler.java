@@ -279,7 +279,7 @@ public class CosmicLangHandler extends LangHandler {
         provider.add("cosmiccore.ember.transfer", "§cEmber Transfer Rate:§6 %s");
 
         multiLang(provider, "item.cosmiccore.the_one_ring.tooltip",
-                "§6§oOne Ring to rule them all, One Ring to find them, One Ring to bring them all and in the darkness bind them.§r",
+                "One Ring to rule them all, One Ring to find them, One Ring to bring them all and in the darkness bind them.",
                 "You might find it hard to take off.");
 
         // generic machine tooltips

@@ -29,7 +29,7 @@
     "PlayerBreathingMixin",
     "TagPrefixItemMixin",
     "accessor.GTMMEBufferAccessor",
-    "accessor.LivingEntityAccessor",
+    "accessor.ItemEntityAccessor",
     "accessor.LootTableAccessor",
     "ae2.eudisplay.EUAddAppearanceMixin",
     "ae2.eudisplay.EUAddPowerUnitMixin",

@@ -1,4 +1,4 @@
-package com.ghostipedia.cosmiccore.client;
+package com.ghostipedia.cosmiccore.client.gui.overlay;
 
 import com.ghostipedia.cosmiccore.common.item.behavior.WirelessPDABehavior;
 

@@ -2,11 +2,14 @@ package com.ghostipedia.cosmiccore.client;
 
 import com.ghostipedia.cosmiccore.CosmicCore;
 import com.ghostipedia.cosmiccore.bee.CosmicBeesSpecies;
+import com.ghostipedia.cosmiccore.client.gui.overlay.CosmicHudGuiOverlay;
+import com.ghostipedia.cosmiccore.client.gui.overlay.ShadeGuiOverlay;
 import com.ghostipedia.cosmiccore.client.renderer.machine.*;
 
 import com.gregtechceu.gtceu.client.renderer.machine.DynamicRenderManager;
 
 import net.minecraft.client.renderer.ShaderInstance;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.event.ModelEvent;
 import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
 import net.minecraftforge.client.event.RegisterShadersEvent;
@@ -20,8 +23,6 @@ import lombok.Getter;
 
 import java.io.IOException;
 import java.util.function.Consumer;
-
-import static dev.ftb.mods.ftblibrary.util.KnownServerRegistries.client;
 
 public class CosmicCoreClient {
 
@@ -59,6 +60,7 @@ public class CosmicCoreClient {
     @SubscribeEvent
     public static void onGUIRegisterUIOverlays(RegisterGuiOverlaysEvent event) {
         event.registerAboveAll("cosmichud", new CosmicHudGuiOverlay());
+        event.registerAbove(new ResourceLocation("minecraft", "frostbite"), "shade", new ShadeGuiOverlay());
     }
 
     @SubscribeEvent

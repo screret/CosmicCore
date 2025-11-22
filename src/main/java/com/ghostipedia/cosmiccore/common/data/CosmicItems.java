@@ -1,8 +1,12 @@
 package com.ghostipedia.cosmiccore.common.data;
 
 import com.ghostipedia.cosmiccore.CosmicCore;
+import com.ghostipedia.cosmiccore.api.item.CosmicComponentItem;
 import com.ghostipedia.cosmiccore.api.item.LinkedTerminalBehavior;
 import com.ghostipedia.cosmiccore.api.item.armor.*;
+import com.ghostipedia.cosmiccore.api.item.component.ICanDropOverride;
+import com.ghostipedia.cosmiccore.api.item.component.IFoilOverride;
+import com.ghostipedia.cosmiccore.api.item.component.IItemDestroyOverride;
 import com.ghostipedia.cosmiccore.api.registries.CosmicRegistration;
 import com.ghostipedia.cosmiccore.client.renderer.item.HaloItemRenderer;
 import com.ghostipedia.cosmiccore.client.renderer.item.RadianceItemRenderer;
@@ -13,10 +17,7 @@ import com.ghostipedia.cosmiccore.common.item.CosmicScytheItem;
 import com.ghostipedia.cosmiccore.common.item.armor.ChestSanguineWarptechSuite;
 import com.ghostipedia.cosmiccore.common.item.armor.HelmetSanguineWarptechSuite;
 import com.ghostipedia.cosmiccore.common.item.armor.SanguineWarptechSuite;
-import com.ghostipedia.cosmiccore.common.item.behavior.EffectApplicationBehavior;
-import com.ghostipedia.cosmiccore.common.item.behavior.InfiniteSprayCanBehavior;
-import com.ghostipedia.cosmiccore.common.item.behavior.StructureWriteBehavior;
-import com.ghostipedia.cosmiccore.common.item.behavior.WirelessPDABehavior;
+import com.ghostipedia.cosmiccore.common.item.behavior.*;
 import com.ghostipedia.cosmiccore.utils.StringUtil;
 
 import com.gregtechceu.gtceu.GTCEu;
@@ -38,13 +39,8 @@ import com.lowdragmc.lowdraglib.utils.LocalizationUtils;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.Level;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidUtil;
 
@@ -69,7 +65,6 @@ import java.util.function.Function;
 
 import static com.ghostipedia.cosmiccore.CosmicUtils.attachRenderer;
 import static com.ghostipedia.cosmiccore.api.registries.CosmicRegistration.REGISTRATE;
-import static com.gregtechceu.gtceu.common.data.GTItems.attach;
 import static com.sammy.malum.registry.common.SpiritTypeRegistry.SPIRITS;
 import static com.sammy.malum.registry.common.item.ItemTiers.ItemTierEnum.SOUL_STAINED_STEEL;
 import static earth.terrarium.adastra.common.registry.ModItems.GLOBES;
@@ -1131,40 +1126,13 @@ public class CosmicItems {
             .defaultModel()
             .register();
 
-    public static ItemEntry<ComponentItem> THE_ONE_RING = REGISTRATE
-            .item("the_one_ring", p -> (ComponentItem) new ComponentItem(p) {
-
-                @Override
-                public boolean canBeHurtBy(DamageSource damageSource) {
-                    return damageSource.is(DamageTypes.LAVA);
-                }
-
-                @Override
-                public int getEntityLifespan(ItemStack itemStack, Level level) {
-                    return Short.MIN_VALUE;
-                }
-
-                @Override
-                public boolean onDroppedByPlayer(ItemStack item, Player player) {
-                    return false;
-                }
-
-                @Override
-                public boolean isFoil(ItemStack stack) {
-                    return true;
-                }
-            })
+    public static ItemEntry<CosmicComponentItem> THE_ONE_RING = REGISTRATE.item("the_one_ring", CosmicComponentItem::new)
             .lang("The One Ring")
-            .properties(p -> p.stacksTo(1).fireResistant())
-            .onRegister(attach(new EffectApplicationBehavior()
-                    .addEffect(() -> new MobEffectInstance(MobEffects.INVISIBILITY, 10), 1.0F)
-                    .addEffect(() -> new MobEffectInstance(MobEffects.UNLUCK, 10, 5), 1.0F)
-                    .addEffect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 10, 1), 1.0F),
-                    new TooltipBehavior(list -> {
-                        list.add(Component.translatable("item.cosmiccore.the_one_ring.tooltip.0"));
-                        list.add(Component.translatable("item.cosmiccore.the_one_ring.tooltip.1"));
-                    })))
+            .properties(p -> p.stacksTo(1))
+            .onRegister(attach(new OneRingBehavior(), IFoilOverride.ALWAYS, ICanDropOverride.NEVER,
+                    IItemDestroyOverride.type(DamageTypes.LAVA)))
             .register();
+
     // public static final ItemEntry<ComponentItem> PARADOX_ECHOS = REGISTRATE.item("paradox_harmonics",
     // ComponentItem::create)
     // .lang("Paradox Harmonics")
