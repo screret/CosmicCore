@@ -11,7 +11,6 @@
     "client.SoundManagerMixin",
     "embers.EmberDialBlockMixin",
     "emi.RecipeScreenMixin",
-    "ldlib.CustomBakedModelMixin"
   ],
   "mixins": [
     "AdAstraOverlayScreenMixin",
