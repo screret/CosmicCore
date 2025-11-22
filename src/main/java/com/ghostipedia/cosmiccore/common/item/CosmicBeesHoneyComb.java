@@ -64,7 +64,7 @@ public enum CosmicBeesHoneyComb implements StringRepresentable, IItemSubtype {
     }
 
     CosmicBeesHoneyComb(Color primary, Color secondary, String compatName) {
-        this.name = toString().toLowerCase(Locale.ENGLISH);
+        this.name = toString().toLowerCase(Locale.ROOT);
         this.primaryColor = primary.getRGB();
         this.secondaryColor = secondary.getRGB();
     }
